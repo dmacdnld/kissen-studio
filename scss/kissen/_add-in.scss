@@ -1,0 +1,27 @@
+.add-in {
+    position: relative;
+}
+
+[class*="add-in__item"] {
+    @extend .muted;
+}
+
+.add-in__item--left {
+    position: absolute;
+    top: $quarter-spacing-unit;
+    left: $quarter-spacing-unit;
+}
+
+.add-in__holder--left {
+    padding-left: 30px;
+}
+
+.add-in__item--right {
+    position: absolute;
+    top: $quarter-spacing-unit;
+    right: $quarter-spacing-unit;
+}
+
+.add-in__holder--right {
+    padding-right: 26px;
+}

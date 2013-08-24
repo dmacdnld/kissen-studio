@@ -1,0 +1,89 @@
+.box--alpha {
+    background-color: $kissen-gray--alpha;
+    border-color: #000;
+}
+
+.box--beta {
+    background-color: $kissen-gray--beta;
+    border-color: $kissen-gray--alpha;
+}
+
+.box--gamma {
+    background-color: $kissen-gray--gamma;
+    border-color: $kissen-gray--beta;
+}
+
+.box--delta {
+    background-color: $kissen-gray--delta;
+    border-color: $kissen-gray--gamma;
+}
+
+.box--epsilon {
+    background-color: $kissen-gray--epsilon;
+    border-color: $kissen-gray--delta;
+}
+
+.box--zeta {
+    background-color: $kissen-gray--zeta;
+    border-color: $kissen-gray--epsilon;
+}
+
+.box--white {
+    background-color: #fff;
+    border-color: $kissen-gray--epsilon;
+}
+
+.box--pink {
+    background-color: $kissen-pink--alpha;
+    color: #fff;
+}
+
+.box--blue {
+    background-color: $kissen-blue--alpha;
+    color: #fff;
+}
+
+.box--green {
+    background-color: $kissen-green--alpha;
+    color: #fff;
+}
+
+.box--orange {
+    background-color: $kissen-orange--alpha;
+    color: #fff;
+}
+
+[class*="box--border"] {
+    border-style: solid;
+    border-width: 0;
+}
+
+.box--border-all {
+    border-width: 1px;
+}
+
+.box--border-ends {
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+}
+
+.box--border-sides {
+    border-right-width: 1px;
+    border-left-width: 1px;
+}
+
+.box--border-top {
+    border-top-width: 1px;
+}
+
+.box--border-right {
+    border-right-width: 1px;
+}
+
+.box--border-bottom {
+    border-bottom-width: 1px;
+}
+
+.box--border-left {
+    border-left-width: 1px;
+}

@@ -1,0 +1,46 @@
+/*------------------------------------*\
+    $LINKS
+\*------------------------------------*/
+
+a,
+.link {
+    @extend .display--inline-block;
+
+    color: $kissen-blue--alpha;
+    text-decoration: none;
+    letter-spacing: 0.1em;
+
+    &:hover,
+    &:focus,
+    &:active {
+        text-decoration: underline;
+    }
+}
+
+.link--loud {
+    color: $kissen-pink--alpha;
+}
+
+.link--current {
+    color: $kissen-pink--alpha;
+    cursor: default;
+
+    &:hover,
+    &:focus,
+    &:active {
+        color: $kissen-pink--alpha;
+    }
+}
+
+.link--svg {
+    position: relative;
+
+    &:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left:0;
+    }
+}
