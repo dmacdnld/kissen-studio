@@ -1,9 +1,25 @@
-{% if collection.all_products_count > 0 %}
-{% for product in collection.products %}
-<h2><a href="{{ product.url }}">{{ product.title }}</a></h2>
-{{ product.description }}
-<img src="{{ product.featured_image | product_img_url: 'grande' }}" alt="{{ product.title | escape }}" />
-{% endfor %}
-{% else %}
-<p>Sorry, there are no products in this collection</p>
-{% endif %}
+<div class="soft-half--sides">
+    {% if collection.all_products_count > 0 %}
+        <ul class="grid">
+            {% for product in collection.products %}
+                <li class="grid__item palm-and-down-one-whole">
+                    <div class="card card--split">
+                        <a href="{{ product.url }}" class="card__image-holder">
+                            <img class="card__image" src="{{ product.featured_image | product_img_url: 'medium' }}" alt="{{ product.featured_image.alt | escape }}">
+                        </a>
+                        <div class="card__copy grid">
+                            <div class="grid__item two-thirds">
+                                <a href="{{ product.url }}" class="card__title">{{ product.title }}</a>
+                            </div><!--
+                         --><div class="grid__item one-third text--right">
+                                <span class="card__price">{{ product.price | money_with_currency }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Sorry, there are no products in this collection</p>
+    {% endif %}
+</div>

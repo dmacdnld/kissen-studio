@@ -1,32 +1,42 @@
-(function ($) {
+(function ($, undefined) {
     var shop = {
         ui: {
-            menuButton: "#menu-button",
-            menuList: "#menu-list"
+            mainHeader: "#main-header",
+            menu: "#menu",
+            mainNav: "#main-nav",
+            priceDisplay: "#price_display",
+            variantOptions: "#variant_options"
         },
 
         toggleMenu: function (shouldHide) {
-            $(this.ui.menuList).toggleClass("hidden", shouldHide);
-            $(this.ui.menuButton).toggleClass("link--current");
+            $(this.ui.mainNav).toggleClass("hidden", shouldHide);
+            $(this.ui.menu).toggleClass("link--current");
         }
     };
 
-    $(shop.ui.menuButton).removeClass("hidden");
+    $(shop.ui.menu)
+        .replaceWith(
+            "<button id=\"menu\" class=\"button--text alpha soft-half float--right\" type=\"button\">" +
+                "<span class=\"icon icon--menu text--center beta line-height--zeta\" aria-hidden=\"true\"></span>" +
+                "<span class=\"accessibility\">Menu</span>" +
+            "</button>"
+        );
 
-    $(shop.ui.menuButton).on("click", function (evt) {
-        evt.preventDefault();
-
-        shop.toggleMenu();
-    });
-
-    $(shop.ui.menuButton).on("keydown", function (evt) {
-        evt.preventDefault();
-
-        if (evt.keyCode === 13 || evt.keyCode === 32) {
+    $(shop.ui.menu)
+        .on("click", function (evt) { console.debug(evt);
             shop.toggleMenu();
-        }
-        else if (evt.keyCode === 27) {
-            shop.toggleMenu(true);
-        }
+        })
+        .on("keydown", function (evt) {
+            if (evt.keyCode === 13 || evt.keyCode === 32) {
+                evt.preventDefault();
+                shop.toggleMenu();
+            }
+            else if (evt.keyCode === 27) {
+                shop.toggleMenu(true);
+            }
+        });
+
+    $(shop.ui.variantOptions).on("change", function (evt) {
+        $(shop.ui.priceDisplay).text(evt.currentTarget.selectedOptions[0].dataset.price);
     });
 })(jQuery);

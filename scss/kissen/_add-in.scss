@@ -4,6 +4,7 @@
 
 [class*="add-in__item"] {
     @extend .muted;
+    @extend .gamma;
 }
 
 .add-in__item--left {
@@ -13,7 +14,7 @@
 }
 
 .add-in__holder--left {
-    padding-left: 30px;
+    padding-left: 36px;
 }
 
 .add-in__item--right {

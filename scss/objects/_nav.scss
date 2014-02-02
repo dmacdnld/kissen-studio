@@ -47,12 +47,15 @@
  *
  */
 .nav--stacked {
-
     > li {
         display: list-item;
 
         > a {
             display: block;
+
+            @extend .one-whole;
+            @extend .soft-half--ends;
+            @extend .soft--sides;
         }
     }
 }
@@ -152,16 +155,5 @@
     }
 }
 
-
-.nav--rwd {
-    @extend .one-whole;
-    position: absolute;
-    top: 100%;
-    left: 0;
-
-    a:hover {
-        background-color: $kissen-gray--zeta;
-    }
-}
 
 }//endif

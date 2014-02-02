@@ -1,6 +1,30 @@
 {% assign page = pages.frontpage %}
-
-<img data-src="{{'all-birds.w300.jpg' | asset_url}}" data-aspect-ratio="auto" class="fs-img img--full">
-<noscript>
-    <img src="{{'all-birds.w300.jpg' | asset_url}}">
-</noscript>
+<div class="soft-half--sides">
+    <ul class="grid">
+        <li class="grid__item palm-and-down-one-whole">
+            <a href="{{ collections["new"].url }}" class="card card--{{ collections["new"].title | downcase }} card__image-holder card__image">
+                <span class="card__title card__title--overlay">{{ collections["new"].title }}</span>
+            </a>
+        </li>
+        <li class="grid__item palm-and-down-one-whole">
+            <a href="{{ collections["pillows"].url }}" class="card card--{{ collections["pillows"].title | downcase }} card__image-holder card__image">
+                <span class="card__title card__title--overlay">{{ collections["pillows"].title }}</span>
+            </a>
+        </li>
+        <li class="grid__item palm-and-down-one-whole">
+            <a href="{{ collections["bags"].url }}" class="card card--{{ collections["bags"].title | downcase }} card__image-holder card__image">
+                <span class="card__title card__title--overlay">{{ collections["bags"].title }}</span>
+            </a>
+        </li>
+        <li class="grid__item palm-and-down-one-whole">
+            <a href="{{ collections["books"].url }}" class="card card--{{ collections["books"].title | downcase }} card__image-holder card__image">
+                <span class="card__title card__title--overlay">{{ collections["books"].title }}</span>
+            </a>
+        </li>
+        <li class="grid__item palm-and-down-one-whole">
+            <a href="{{ collections["sale"].url }}" class="card card--{{ collections["sale"].title | downcase }} card__image-holder card__image">
+                <span class="card__title card__title--overlay">{{ collections["sale"].title }}</span>
+            </a>
+        </li>
+    </ul>
+</div>

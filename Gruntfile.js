@@ -55,6 +55,16 @@ module.exports = function(grunt) {
             js: ["kissen-studio-4559199/assets/shop.js.liquid"]
         },
 
+        shopify: {
+            options: {
+                api_key: "35d8fcb8a7dddb2ba5abfef4d1207d26",
+                password: "2f8094a44e95403b145836a758abbdff",
+                url: "kissen-studio.myshopify.com",
+                base: "kissen-studio-4559199/",
+                theme: "4559199"
+            }
+        },
+
         watch: {
             scss: {
                 files: "scss/**/*.scss",
@@ -69,6 +79,10 @@ module.exports = function(grunt) {
                 options: {
                     interrupt: true
                 }
+            },
+            shopify: {
+                files: ["kissen-studio-4559199/**/*.liquid"],
+                tasks: ["shopify"]
             }
         }
     });
@@ -77,6 +91,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks("grunt-contrib-compass");
     grunt.loadNpmTasks("grunt-contrib-copy");
     grunt.loadNpmTasks("grunt-contrib-clean");
+    grunt.loadNpmTasks('grunt-shopify');
 
     // Default task.
     grunt.registerTask("default", ["watch"]);

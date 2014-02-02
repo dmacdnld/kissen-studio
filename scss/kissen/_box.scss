@@ -1,6 +1,7 @@
 .box--alpha {
     background-color: $kissen-gray--alpha;
     border-color: #000;
+    color: #fff;
 }
 
 .box--beta {
@@ -53,7 +54,27 @@
     color: #fff;
 }
 
-[class*="box--border"] {
+.box--white-pink {
+    color: $kissen-pink--alpha;
+    background-color: #fff;
+}
+
+.box--white-blue {
+    color: $kissen-blue--alpha;
+    background-color: #fff;
+}
+
+.box--white-green {
+    color: $kissen-green--alpha;
+    background-color: #fff;
+}
+
+.box--white-orange {
+    color: $kissen-orange--alpha;
+    background-color: #fff;
+}
+
+[class^="box--border"] {
     border-style: solid;
     border-width: 0;
 }
@@ -86,4 +107,8 @@
 
 .box--border-left {
     border-left-width: 1px;
+}
+
+.box--border-thick {
+    border-width: 3px;
 }

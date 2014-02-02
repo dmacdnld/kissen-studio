@@ -4,8 +4,6 @@
 
 a,
 .link {
-    @extend .display--inline-block;
-
     color: $kissen-blue--alpha;
     text-decoration: none;
     letter-spacing: 0.1em;

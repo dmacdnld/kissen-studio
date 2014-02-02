@@ -1,14 +1,21 @@
-<h2>{{ product.title }}</h2>
-{{ product.description }}
-<form action="/cart/add" method="post" enctype="multipart/form-data">
-    <select name="id">
-        {% for variant in product.variants %}
-        {% if variant.available == true %}
-        <option value="{{variant.id}}"> {{ variant.title }} for {{ variant.price | money_with_currency }} </option>
-        {% else %}
-        <option disabled="disabled"> {{ variant.title }} - sold out! </option>
-        {% endif %}
-        {% endfor %}
-    </select>
-    <input type="submit" name="add" id="add" value="Add to Cart" class="button">
-</form>
+<div class="soft-half--sides">
+    <h2 class="repel-quarter--bottom text--tight">{{ product.title }}</h2>
+    <p id="price_display" class="repel-half--bottom delta">{{ product.price | money }}</p>
+    <div class="repel-half--bottom line-height--zeta">
+        <img class="one-whole" src="{{ product.featured_image | product_img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
+    </div>
+    <form action="/cart/add" method="post" enctype="multipart/form-data" class="repel--bottom">
+        <select id="variant_options" name="id" class="repel-half--bottom one-whole">
+            {% for variant in product.variants %}
+                {% if variant.available == true %}
+                    {% assign price_difference = variant.price | minus: product.price %}
+                    <option value="{{variant.id}}" data-price="{{ variant.price | money }}">{{ variant.title }} {% if price_difference > 0 %}+{{ price_difference | money }}{% endif %}</option>
+                {% else %}
+                    <option disabled="disabled">{{ variant.title }} - sold out!</option>
+                {% endif %}
+            {% endfor %}
+        </select>
+        <button type="submit" name="add" id="add" class="button button--positive button--full">Add to Cart</button>
+    </form>
+    {{ product.description }}
+</div>

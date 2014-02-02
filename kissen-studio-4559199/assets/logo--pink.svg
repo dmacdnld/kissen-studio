@@ -1,10 +1,1 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 15.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg version="1.2" baseProfile="tiny" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-	 x="0px" y="0px" width="60px" height="60px" viewBox="26 26 60 60" overflow="inherit" xml:space="preserve">
-<g>
-	<path fill="#FD008F" d="M86,56c0,16.567-13.43,30-30,30c-16.568,0-30-13.433-30-30c0-16.569,13.432-30,30-30
-		C72.57,26,86,39.431,86,56z"/>
-	<polygon fill="#FFFFFF" points="43.601,37.6 70.799,37.6 57.198,56 70.799,74.399 43.601,74.399 	"/>
-</g>
-</svg>
+<?xml version="1.0" encoding="utf-8"?><svg class="logo__svg" version="1.2" baseProfile="tiny" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="60px" height="60px" viewBox="0 0 60 60" overflow="inherit" xml:space="preserve"><g><path fill="#FD008F" d="M60,30c0,16.566-13.43,30-30,30C13.436,60,0,46.566,0,30C0,13.436,13.436,0,30,0C46.57,0,60,13.436,60,30z"/><polygon fill="#FFFFFF" points="17.6,11.6 44.802,11.6 31.191,30 44.802,48.399 17.6,48.399"/></g></svg>

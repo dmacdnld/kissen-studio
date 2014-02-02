@@ -1,7 +1,8 @@
+@charset "UTF-8";
 /*------------------------------------*\
     INUIT.CSS
 \*------------------------------------*/
-/**
+/*!*
  *
  * inuitcss.com -- @inuitcss -- @csswizardry
  *
@@ -338,7 +339,7 @@
  *
  * We work out your end points for you:
  */
-/* normalize.css v2.1.0 | MIT License | git.io/normalize */
+/*! normalize.css v2.1.0 | MIT License | git.io/normalize */
 /* ==========================================================================
    HTML5 display definitions
    ========================================================================== */
@@ -823,8 +824,9 @@ option {
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/generic\/_reset\.scss}line{font-family:\0000377}}
-.text-input:active,
+.text-input:active, .search-form .search__input:active,
 .text-input:focus,
+.search-form .search__input:focus,
 textarea:active,
 textarea:focus {
   cursor: text;
@@ -840,7 +842,8 @@ textarea:focus {
  * and over in your markup.
  */
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/generic\/_clearfix\.scss}line{font-family:\0000310}}
-.cf:after, .nav:after {
+.cf:after, .nav:after, .island:after,
+.islet:after {
   content: "";
   display: table;
   clear: both;
@@ -910,8 +913,8 @@ hr {
  */
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/generic\/_shared\.scss}line{font-family:\0000358}}
 ul, ol, dd {
-  margin-left: 48px;
-  margin-left: 3rem;
+  margin-left: 24px;
+  margin-left: 1.5rem;
 }
 
 /**
@@ -922,9 +925,10 @@ ul, ol, dd {
 \*------------------------------------*/
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/base\/_main\.scss}line{font-family:\000034}}
 html {
-  font: 1em/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font: 1em/1.5 "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
   overflow-y: scroll;
   min-height: 100%;
+  color: #5b5b5b;
 }
 
 /*------------------------------------*\
@@ -946,27 +950,27 @@ h1, .alpha {
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/base\/_headings\.scss}line{font-family:\0000314}}
 h2, .beta {
-  font-size: 30px;
-  font-size: 1.875rem;
-  line-height: 1.6;
+  font-size: 28px;
+  font-size: 1.75rem;
+  line-height: 1.71429;
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/base\/_headings\.scss}line{font-family:\0000317}}
-h3, .gamma {
-  font-size: 24px;
-  font-size: 1.5rem;
-  line-height: 1;
+h3, .gamma, [class*="add-in__item"], .card__title--overlay {
+  font-size: 22px;
+  font-size: 1.375rem;
+  line-height: 1.09091;
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/base\/_headings\.scss}line{font-family:\0000320}}
 h4, .delta {
-  font-size: 20px;
-  font-size: 1.25rem;
-  line-height: 1.2;
+  font-size: 18px;
+  font-size: 1.125rem;
+  line-height: 1.33333;
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/base\/_headings\.scss}line{font-family:\0000323}}
-h5, .epsilon {
+h5, .epsilon, .card__copy .card__title {
   font-size: 16px;
   font-size: 1rem;
   line-height: 1.5;
@@ -1261,7 +1265,7 @@ img[height],
  */
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/base\/_images\.scss}line{font-family:\0000328}}
 .img--round {
-  border-radius: 3px;
+  border-radius: 2px;
 }
 
 /**
@@ -1321,9 +1325,12 @@ figure > img {
 /*------------------------------------*\
     $LISTS
 \*------------------------------------*/
-/**
- * Remove vertical spacing from nested lists.
- */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/base\/_lists\.scss}line{font-family:\000034}}
+li {
+  /**
+   * Remove vertical spacing from nested lists.
+   */
+}
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/base\/_lists\.scss}line{font-family:\000039}}
 li > ul,
 li > ol {
@@ -1646,7 +1653,7 @@ fieldset {
  *
  */
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/base\/_forms\.scss}line{font-family:\0000325}}
-.text-input,
+.text-input, .search-form .search__input,
 textarea {
   /**
    * Style these via your theme stylesheet.
@@ -1799,8 +1806,9 @@ label,
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/base\/_forms\.scss}line{font-family:\00003172}}
-.text-input:active + .extra-help,
-.text-input:focus + .extra-help {
+.text-input:active + .extra-help, .search-form .search__input:active + .extra-help,
+.text-input:focus + .extra-help,
+.search-form .search__input:focus + .extra-help {
   visibility: visible;
 }
 
@@ -1911,11 +1919,11 @@ label,
    </ul>
  *
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/objects\/_nav\.scss}line{font-family:\0000351}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/objects\/_nav\.scss}line{font-family:\0000350}}
 .nav--stacked > li {
   display: list-item;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/objects\/_nav\.scss}line{font-family:\0000354}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/objects\/_nav\.scss}line{font-family:\0000353}}
 .nav--stacked > li > a {
   display: block;
 }
@@ -1931,7 +1939,7 @@ label,
    </ul>
  *
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/objects\/_nav\.scss}line{font-family:\0000372}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/objects\/_nav\.scss}line{font-family:\0000375}}
 .nav--banner {
   text-align: center;
 }
@@ -1947,7 +1955,7 @@ label,
    </ul>
  *
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/objects\/_nav\.scss}line{font-family:\0000388}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/objects\/_nav\.scss}line{font-family:\0000391}}
 .nav--block, .options {
   line-height: 1;
   /**
@@ -1957,12 +1965,12 @@ label,
   word-spacing: -0.43em;
   white-space: nowrap;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/objects\/_nav\.scss}line{font-family:\0000397}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/objects\/_nav\.scss}line{font-family:\00003100}}
 .nav--block > li, .options > li {
   letter-spacing: normal;
   word-spacing: normal;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/objects\/_nav\.scss}line{font-family:\00003101}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/objects\/_nav\.scss}line{font-family:\00003104}}
 .nav--block > li > a, .options > li > a {
   padding: 12px;
 }
@@ -1980,16 +1988,16 @@ label,
  *
  * Thanks to @pimpl for this idea!
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/objects\/_nav\.scss}line{font-family:\00003121}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/objects\/_nav\.scss}line{font-family:\00003124}}
 .nav--fit {
   display: table;
   width: 100%;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/objects\/_nav\.scss}line{font-family:\00003125}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/objects\/_nav\.scss}line{font-family:\00003128}}
 .nav--fit > li {
   display: table-cell;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/objects\/_nav\.scss}line{font-family:\00003128}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/objects\/_nav\.scss}line{font-family:\00003131}}
 .nav--fit > li > a {
   display: block;
 }
@@ -2000,24 +2008,13 @@ label,
    `<ul class="nav  nav--keywords>`
  *
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/objects\/_nav\.scss}line{font-family:\00003145}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/objects\/_nav\.scss}line{font-family:\00003148}}
 .nav--keywords > li:after {
   content: "\002C" "\00A0";
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/objects\/_nav\.scss}line{font-family:\00003149}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/objects\/_nav\.scss}line{font-family:\00003152}}
 .nav--keywords > li:last-child:after {
   display: none;
-}
-
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/objects\/_nav\.scss}line{font-family:\00003156}}
-.nav--rwd {
-  position: absolute;
-  top: 100%;
-  left: 0;
-}
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/objects\/_nav\.scss}line{font-family:\00003162}}
-.nav--rwd a:hover {
-  background-color: #fafafa;
 }
 
 /*------------------------------------*\
@@ -2047,13 +2044,13 @@ label,
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/objects\/_options\.scss}line{font-family:\0000332}}
 .options > li:first-child > a {
   border-left-width: 1px;
-  border-top-left-radius: 3px;
-  border-bottom-left-radius: 3px;
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/objects\/_options\.scss}line{font-family:\0000338}}
 .options > li:last-child > a {
-  border-top-right-radius: 3px;
-  border-bottom-right-radius: 3px;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
 }
 
 /*------------------------------------*\
@@ -2113,6 +2110,45 @@ label,
 }
 
 /*------------------------------------*\
+    $ISLAND
+\*------------------------------------*/
+/**
+ * Simple, boxed off content, as per: csswizardry.com/2011/10/the-island-object
+ * E.g.:
+ *
+   <div class=island>
+       I am boxed off.
+   </div>
+ *
+ * Demo: jsfiddle.net/inuitcss/u8pV3
+ *
+ */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/objects\/_island\.scss}line{font-family:\0000318}}
+.island,
+.islet {
+  display: block;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/objects\/_island\.scss}line{font-family:\0000322}}
+.island {
+  padding: 24px;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/objects\/_island\.scss}line{font-family:\0000326}}
+.island > :last-child,
+.islet > :last-child {
+  margin-bottom: 0;
+}
+
+/**
+ * Just like `.island`, only smaller.
+ */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/objects\/_island\.scss}line{font-family:\0000334}}
+.islet {
+  padding: 12px;
+}
+
+/*------------------------------------*\
     $ARROWS
 \*------------------------------------*/
 /**
@@ -2149,7 +2185,7 @@ label,
  * limitations under the License.
  *
  */
-/**
+/*!*
  *
  * @csswizardry -- csswizardry.com/beautons
  *
@@ -2173,7 +2209,7 @@ label,
  * 9. Don’t allow buttons to have underlines; it kinda ruins the illusion.
  */
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/objects\/_beautons\.scss}line{font-family:\0000356}}
-.button {
+.button, .search-form .search__button {
   display: inline-block;
   /* [1] */
   vertical-align: middle;
@@ -2200,17 +2236,17 @@ label,
   /* [7] */
   padding-left: 1em;
   /* [7] */
-  border-radius: 3px;
+  border-radius: 2px;
   /* [8] */
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/objects\/_beautons\.scss}line{font-family:\0000376}}
-.button, .button:hover {
+.button, .search-form .search__button, .button:hover, .search-form .search__button:hover {
   text-decoration: none;
   /* [9] */
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/objects\/_beautons\.scss}line{font-family:\0000381}}
-.button:active, .button:focus {
+.button:active, .search-form .search__button:active, .button:focus, .search-form .search__button:focus {
   outline: none;
 }
 
@@ -2224,7 +2260,7 @@ label,
  * remains uniform.
  */
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/objects\/_beautons\.scss}line{font-family:\0000399}}
-.button--small {
+.button--small, .search-form .search__button {
   padding-right: 0.5em;
   padding-left: 0.5em;
   line-height: 2;
@@ -2302,8 +2338,8 @@ label,
  * Positive actions; e.g. sign in, purchase, submit, etc.
  */
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/objects\/_beautons\.scss}line{font-family:\00003179}}
-.button--positive {
-  background-color: #4A993E;
+.button--positive, .search-form .search__button {
+  background-color: #fd008f;
   color: #fff;
 }
 
@@ -2405,7 +2441,7 @@ label,
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/objects\/_lozenges\.scss}line{font-family:\0000343}}
 .loz {
-  border-radius: 3px;
+  border-radius: 2px;
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/objects\/_lozenges\.scss}line{font-family:\0000348}}
@@ -2431,7 +2467,7 @@ label,
 * Whole
 */
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/generic\/_widths\.scss}line{font-family:\0000317}}
-.one-whole, .nav--rwd, .fs-img {
+.one-whole, .nav--stacked > li > a, .card__title--overlay {
   width: 100%;
 }
 
@@ -3689,19 +3725,18 @@ label,
  * Display
  */
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/generic\/_helper\.scss}line{font-family:\0000317}}
-.display--block {
-  display: block!important;
+.display--block, .card, .card__image-holder {
+  display: block !important;
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/generic\/_helper\.scss}line{font-family:\0000318}}
-.display--inline-block, a,
-.link {
-  display: inline-block!important;
+.display--inline-block, .card__title--overlay {
+  display: inline-block !important;
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/generic\/_helper\.scss}line{font-family:\0000319}}
 .display--inline {
-  display: inline!important;
+  display: inline !important;
 }
 
 /**
@@ -3709,7 +3744,7 @@ label,
  */
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/generic\/_helper\.scss}line{font-family:\0000325}}
 .float--right {
-  float: right!important;
+  float: right !important;
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/generic\/_helper\.scss}line{font-family:\0000326}}
@@ -3723,7 +3758,7 @@ label,
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/generic\/_helper\.scss}line{font-family:\0000330}}
-.relative {
+.relative, .card__image-holder {
   position: relative;
 }
 
@@ -3736,8 +3771,8 @@ label,
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/generic\/_helper\.scss}line{font-family:\0000337}}
-.text--center {
-  text-align: center!important;
+.text--center, .card__title--overlay {
+  text-align: center !important;
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/generic\/_helper\.scss}line{font-family:\0000338}}
@@ -3760,7 +3795,7 @@ label,
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/generic\/_helper\.scss}line{font-family:\0000346}}
 .vert--baseline {
-  vertical-align: baseline!important;
+  vertical-align: baseline !important;
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/generic\/_helper\.scss}line{font-family:\0000347}}
@@ -3773,26 +3808,26 @@ label,
  */
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/generic\/_helper\.scss}line{font-family:\0000353}}
 .weight--light {
-  font-weight: 300!important;
+  font-weight: 300 !important;
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/generic\/_helper\.scss}line{font-family:\0000354}}
 .weight--normal {
-  font-weight: 400!important;
+  font-weight: 400 !important;
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/generic\/_helper\.scss}line{font-family:\0000355}}
 .weight--semibold {
-  font-weight: 600!important;
+  font-weight: 600 !important;
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/generic\/_helper\.scss}line{font-family:\0000356}}
-.weight--bold {
-  font-weight: 700!important;
+.weight--bold, .card__title {
+  font-weight: 700 !important;
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/generic\/_helper\.scss}line{font-family:\0000359}}
-.nowrap {
+.nowrap, .search-form {
   white-space: nowrap;
 }
 
@@ -3845,7 +3880,7 @@ label,
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/generic\/_helper\.scss}line{font-family:\0000376}}
-.repel--bottom {
+.repel--bottom, .card {
   margin-bottom: 24px !important;
 }
 
@@ -3942,45 +3977,45 @@ label,
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/generic\/_helper\.scss}line{font-family:\0000397}}
 .repel--auto {
-  margin-right: auto!important;
-  margin-left: auto!important;
+  margin-right: auto !important;
+  margin-left: auto !important;
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/generic\/_helper\.scss}line{font-family:\0000399}}
 .flush {
-  margin: 0!important;
+  margin: 0 !important;
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/generic\/_helper\.scss}line{font-family:\00003100}}
 .flush--top {
-  margin-top: 0!important;
+  margin-top: 0 !important;
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/generic\/_helper\.scss}line{font-family:\00003101}}
 .flush--right {
-  margin-right: 0!important;
+  margin-right: 0 !important;
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/generic\/_helper\.scss}line{font-family:\00003102}}
 .flush--bottom {
-  margin-bottom: 0!important;
+  margin-bottom: 0 !important;
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/generic\/_helper\.scss}line{font-family:\00003103}}
 .flush--left {
-  margin-left: 0!important;
+  margin-left: 0 !important;
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/generic\/_helper\.scss}line{font-family:\00003104}}
 .flush--ends {
-  margin-top: 0!important;
-  margin-bottom: 0!important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/generic\/_helper\.scss}line{font-family:\00003105}}
 .flush--sides {
-  margin-right: 0!important;
-  margin-left: 0!important;
+  margin-right: 0 !important;
+  margin-left: 0 !important;
 }
 
 /**
@@ -4018,13 +4053,13 @@ label,
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/generic\/_helper\.scss}line{font-family:\00003117}}
-.soft--sides {
+.soft--sides, .nav--stacked > li > a {
   padding-right: 24px !important;
   padding-left: 24px !important;
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/generic\/_helper\.scss}line{font-family:\00003119}}
-.soft-half {
+.soft-half, .card__copy {
   padding: 12px !important;
 }
 
@@ -4049,7 +4084,7 @@ label,
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/generic\/_helper\.scss}line{font-family:\00003124}}
-.soft-half--ends {
+.soft-half--ends, .nav--stacked > li > a {
   padding-top: 12px !important;
   padding-bottom: 12px !important;
 }
@@ -4099,39 +4134,39 @@ label,
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/generic\/_helper\.scss}line{font-family:\00003135}}
 .hard {
-  padding: 0!important;
+  padding: 0 !important;
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/generic\/_helper\.scss}line{font-family:\00003136}}
 .hard--top {
-  padding-top: 0!important;
+  padding-top: 0 !important;
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/generic\/_helper\.scss}line{font-family:\00003137}}
 .hard--right {
-  padding-right: 0!important;
+  padding-right: 0 !important;
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/generic\/_helper\.scss}line{font-family:\00003138}}
 .hard--bottom {
-  padding-bottom: 0!important;
+  padding-bottom: 0 !important;
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/generic\/_helper\.scss}line{font-family:\00003139}}
 .hard--left {
-  padding-left: 0!important;
+  padding-left: 0 !important;
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/generic\/_helper\.scss}line{font-family:\00003140}}
 .hard--ends {
-  padding-top: 0!important;
-  padding-bottom: 0!important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/generic\/_helper\.scss}line{font-family:\00003141}}
 .hard--sides {
-  padding-right: 0!important;
-  padding-left: 0!important;
+  padding-right: 0 !important;
+  padding-left: 0 !important;
 }
 
 /**
@@ -4154,7 +4189,7 @@ label,
  */
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/generic\/_helper\.scss}line{font-family:\00003162}}
 .informative {
-  cursor: help!important;
+  cursor: help !important;
 }
 
 /**
@@ -4162,7 +4197,7 @@ label,
  */
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/generic\/_helper\.scss}line{font-family:\00003170}}
 .muted, [class*="add-in__item"] {
-  opacity: 0.5!important;
+  opacity: 0.5 !important;
   filter: alpha(opacity=50) !important;
 }
 
@@ -4174,7 +4209,7 @@ label,
  */
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/generic\/_helper\.scss}line{font-family:\00003182}}
 .proceed {
-  text-align: right!important;
+  text-align: right !important;
 }
 
 /**
@@ -4185,7 +4220,7 @@ label,
  */
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/generic\/_helper\.scss}line{font-family:\00003193}}
 .go:after {
-  content: "\00A0" "\00BB"!important;
+  content: "\00A0" "\00BB" !important;
 }
 
 /**
@@ -4193,7 +4228,7 @@ label,
  */
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/generic\/_helper\.scss}line{font-family:\00003201}}
 .uppercase {
-  text-transform: uppercase!important;
+  text-transform: uppercase !important;
 }
 
 /**
@@ -4203,112 +4238,112 @@ label,
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/generic\/_helper\.scss}line{font-family:\00003221}}
 .accessibility,
 .visuallyhidden {
-  border: 0!important;
+  border: 0 !important;
   clip: rect(0 0 0 0) !important;
-  height: 1px!important;
+  height: 1px !important;
   margin: -1px !important;
-  overflow: hidden!important;
-  padding: 0!important;
-  position: absolute!important;
-  width: 1px!important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  width: 1px !important;
 }
 
 @media only screen and (max-width: 319px) {
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/generic\/_helper\.scss}line{font-family:\00003228}}
   .accessibility--palm-and-down,
   .visuallyhidden--palm-and-down {
-    border: 0!important;
+    border: 0 !important;
     clip: rect(0 0 0 0) !important;
-    height: 1px!important;
+    height: 1px !important;
     margin: -1px !important;
-    overflow: hidden!important;
-    padding: 0!important;
-    position: absolute!important;
-    width: 1px!important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    position: absolute !important;
+    width: 1px !important;
   }
 }
 @media only screen and (max-width: 480px) {
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/generic\/_helper\.scss}line{font-family:\00003228}}
   .accessibility--palm,
   .visuallyhidden--palm {
-    border: 0!important;
+    border: 0 !important;
     clip: rect(0 0 0 0) !important;
-    height: 1px!important;
+    height: 1px !important;
     margin: -1px !important;
-    overflow: hidden!important;
-    padding: 0!important;
-    position: absolute!important;
-    width: 1px!important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    position: absolute !important;
+    width: 1px !important;
   }
 }
 @media only screen and (min-width: 481px) and (max-width: 1023px) {
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/generic\/_helper\.scss}line{font-family:\00003228}}
   .accessibility--lap,
   .visuallyhidden--lap {
-    border: 0!important;
+    border: 0 !important;
     clip: rect(0 0 0 0) !important;
-    height: 1px!important;
+    height: 1px !important;
     margin: -1px !important;
-    overflow: hidden!important;
-    padding: 0!important;
-    position: absolute!important;
-    width: 1px!important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    position: absolute !important;
+    width: 1px !important;
   }
 }
 @media only screen and (min-width: 481px) {
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/generic\/_helper\.scss}line{font-family:\00003228}}
   .accessibility--lap-and-up,
   .visuallyhidden--lap-and-up {
-    border: 0!important;
+    border: 0 !important;
     clip: rect(0 0 0 0) !important;
-    height: 1px!important;
+    height: 1px !important;
     margin: -1px !important;
-    overflow: hidden!important;
-    padding: 0!important;
-    position: absolute!important;
-    width: 1px!important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    position: absolute !important;
+    width: 1px !important;
   }
 }
 @media only screen and (max-width: 1023px) {
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/generic\/_helper\.scss}line{font-family:\00003228}}
   .accessibility--portable,
   .visuallyhidden--portable {
-    border: 0!important;
+    border: 0 !important;
     clip: rect(0 0 0 0) !important;
-    height: 1px!important;
+    height: 1px !important;
     margin: -1px !important;
-    overflow: hidden!important;
-    padding: 0!important;
-    position: absolute!important;
-    width: 1px!important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    position: absolute !important;
+    width: 1px !important;
   }
 }
 @media only screen and (min-width: 1024px) {
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/generic\/_helper\.scss}line{font-family:\00003228}}
   .accessibility--desk,
   .visuallyhidden--desk {
-    border: 0!important;
+    border: 0 !important;
     clip: rect(0 0 0 0) !important;
-    height: 1px!important;
+    height: 1px !important;
     margin: -1px !important;
-    overflow: hidden!important;
-    padding: 0!important;
-    position: absolute!important;
-    width: 1px!important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    position: absolute !important;
+    width: 1px !important;
   }
 }
 @media only screen and (min-width: 1200px) {
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/generic\/_helper\.scss}line{font-family:\00003228}}
   .accessibility--desk-wide,
   .visuallyhidden--desk-wide {
-    border: 0!important;
+    border: 0 !important;
     clip: rect(0 0 0 0) !important;
-    height: 1px!important;
+    height: 1px !important;
     margin: -1px !important;
-    overflow: hidden!important;
-    padding: 0!important;
-    position: absolute!important;
-    width: 1px!important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    position: absolute !important;
+    width: 1px !important;
   }
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/generic\/_helper\.scss}line{font-family:\00003236}}
@@ -4318,6 +4353,19 @@ label,
 }
 
 /* endif */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/kissen\/_logo\.scss}line{font-family:\000031}}
+.logo__object {
+  width: 45px;
+  height: 45px;
+}
+
+@media only screen and (min-width: 481px) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/kissen\/_logo\.scss}line{font-family:\000037}}
+  .logo__object {
+    width: 60px;
+    height: 60px;
+  }
+}
 @font-face {
   font-family: 'kissen';
   src: url("assets/kissen.eot");
@@ -4372,6 +4420,36 @@ label,
   content: "\e002";
 }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/kissen\/_text\.scss}line{font-family:\000031}}
+.text--left {
+  text-align: left !important;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/kissen\/_text\.scss}line{font-family:\000035}}
+.text--center, .card__title--overlay {
+  text-align: center !important;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/kissen\/_text\.scss}line{font-family:\000039}}
+.text--right {
+  text-align: right !important;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/kissen\/_text\.scss}line{font-family:\0000313}}
+.text--uppercase, .card__title--overlay {
+  text-transform: uppercase !important;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/kissen\/_text\.scss}line{font-family:\0000317}}
+.text--capitalize, .card__copy .card__title {
+  text-transform: capitalize !important;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/kissen\/_text\.scss}line{font-family:\0000321}}
+.text--tight {
+  line-height: 1.2 !important;
+}
+
 /*------------------------------------*\
     $LINKS
 \*------------------------------------*/
@@ -4382,7 +4460,7 @@ a,
   text-decoration: none;
   letter-spacing: 0.1em;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/kissen\/_links\.scss}line{font-family:\0000315}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/kissen\/_links\.scss}line{font-family:\0000313}}
 a:hover, a:focus, a:active,
 .link:hover,
 .link:focus,
@@ -4390,26 +4468,26 @@ a:hover, a:focus, a:active,
   text-decoration: underline;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/kissen\/_links\.scss}line{font-family:\0000320}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/kissen\/_links\.scss}line{font-family:\0000318}}
 .link--loud {
   color: #fd008f;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/kissen\/_links\.scss}line{font-family:\0000324}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/kissen\/_links\.scss}line{font-family:\0000322}}
 .link--current {
   color: #fd008f;
   cursor: default;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/kissen\/_links\.scss}line{font-family:\0000330}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/kissen\/_links\.scss}line{font-family:\0000328}}
 .link--current:hover, .link--current:focus, .link--current:active {
   color: #fd008f;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/kissen\/_links\.scss}line{font-family:\0000335}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/kissen\/_links\.scss}line{font-family:\0000333}}
 .link--svg {
   position: relative;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/kissen\/_links\.scss}line{font-family:\0000338}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/kissen\/_links\.scss}line{font-family:\0000336}}
 .link--svg:before {
   content: "";
   position: absolute;
@@ -4423,115 +4501,145 @@ a:hover, a:focus, a:active,
 .box--alpha {
   background-color: #333333;
   border-color: #000;
+  color: #fff;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/kissen\/_box\.scss}line{font-family:\000036}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/kissen\/_box\.scss}line{font-family:\000037}}
 .box--beta {
   background-color: #5b5b5b;
   border-color: #333333;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/kissen\/_box\.scss}line{font-family:\0000311}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/kissen\/_box\.scss}line{font-family:\0000312}}
 .box--gamma {
   background-color: #838383;
   border-color: #5b5b5b;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/kissen\/_box\.scss}line{font-family:\0000316}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/kissen\/_box\.scss}line{font-family:\0000317}}
 .box--delta {
   background-color: #aaaaaa;
   border-color: #838383;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/kissen\/_box\.scss}line{font-family:\0000321}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/kissen\/_box\.scss}line{font-family:\0000322}}
 .box--epsilon {
   background-color: #d2d2d2;
   border-color: #aaaaaa;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/kissen\/_box\.scss}line{font-family:\0000326}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/kissen\/_box\.scss}line{font-family:\0000327}}
 .box--zeta {
   background-color: #fafafa;
   border-color: #d2d2d2;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/kissen\/_box\.scss}line{font-family:\0000331}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/kissen\/_box\.scss}line{font-family:\0000332}}
 .box--white {
   background-color: #fff;
   border-color: #d2d2d2;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/kissen\/_box\.scss}line{font-family:\0000336}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/kissen\/_box\.scss}line{font-family:\0000337}}
 .box--pink {
   background-color: #fd008f;
   color: #fff;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/kissen\/_box\.scss}line{font-family:\0000341}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/kissen\/_box\.scss}line{font-family:\0000342}}
 .box--blue {
   background-color: #0079d4;
   color: #fff;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/kissen\/_box\.scss}line{font-family:\0000346}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/kissen\/_box\.scss}line{font-family:\0000347}}
 .box--green {
   background-color: #8ca92b;
   color: #fff;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/kissen\/_box\.scss}line{font-family:\0000351}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/kissen\/_box\.scss}line{font-family:\0000352}}
 .box--orange {
   background-color: #f47037;
   color: #fff;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/kissen\/_box\.scss}line{font-family:\0000356}}
-[class*="box--border"] {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/kissen\/_box\.scss}line{font-family:\0000357}}
+.box--white-pink {
+  color: #fd008f;
+  background-color: #fff;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/kissen\/_box\.scss}line{font-family:\0000362}}
+.box--white-blue {
+  color: #0079d4;
+  background-color: #fff;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/kissen\/_box\.scss}line{font-family:\0000367}}
+.box--white-green {
+  color: #8ca92b;
+  background-color: #fff;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/kissen\/_box\.scss}line{font-family:\0000372}}
+.box--white-orange {
+  color: #f47037;
+  background-color: #fff;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/kissen\/_box\.scss}line{font-family:\0000377}}
+[class^="box--border"] {
   border-style: solid;
   border-width: 0;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/kissen\/_box\.scss}line{font-family:\0000361}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/kissen\/_box\.scss}line{font-family:\0000382}}
 .box--border-all {
   border-width: 1px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/kissen\/_box\.scss}line{font-family:\0000365}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/kissen\/_box\.scss}line{font-family:\0000386}}
 .box--border-ends {
   border-top-width: 1px;
   border-bottom-width: 1px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/kissen\/_box\.scss}line{font-family:\0000370}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/kissen\/_box\.scss}line{font-family:\0000391}}
 .box--border-sides {
   border-right-width: 1px;
   border-left-width: 1px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/kissen\/_box\.scss}line{font-family:\0000375}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/kissen\/_box\.scss}line{font-family:\0000396}}
 .box--border-top {
   border-top-width: 1px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/kissen\/_box\.scss}line{font-family:\0000379}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/kissen\/_box\.scss}line{font-family:\00003100}}
 .box--border-right {
   border-right-width: 1px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/kissen\/_box\.scss}line{font-family:\0000383}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/kissen\/_box\.scss}line{font-family:\00003104}}
 .box--border-bottom {
   border-bottom-width: 1px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/kissen\/_box\.scss}line{font-family:\0000387}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/kissen\/_box\.scss}line{font-family:\00003108}}
 .box--border-left {
   border-left-width: 1px;
 }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/kissen\/_box\.scss}line{font-family:\00003112}}
+.box--border-thick {
+  border-width: 3px;
+}
+
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/kissen\/_form-fields\.scss}line{font-family:\000031}}
-.text-input {
+.text-input, .search-form .search__input {
   border: 1px solid #aaaaaa;
-  border-radius: 3px;
+  border-radius: 2px;
   padding: 6px;
 }
 
@@ -4540,26 +4648,26 @@ a:hover, a:focus, a:active,
   position: relative;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/kissen\/_add-in\.scss}line{font-family:\000039}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/kissen\/_add-in\.scss}line{font-family:\0000310}}
 .add-in__item--left {
   position: absolute;
   top: 6px;
   left: 6px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/kissen\/_add-in\.scss}line{font-family:\0000315}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/kissen\/_add-in\.scss}line{font-family:\0000316}}
 .add-in__holder--left {
-  padding-left: 30px;
+  padding-left: 36px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/kissen\/_add-in\.scss}line{font-family:\0000319}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/kissen\/_add-in\.scss}line{font-family:\0000320}}
 .add-in__item--right {
   position: absolute;
   top: 6px;
   right: 6px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/kissen\/_add-in\.scss}line{font-family:\0000325}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/kissen\/_add-in\.scss}line{font-family:\0000326}}
 .add-in__holder--right {
   padding-right: 26px;
 }
@@ -4597,27 +4705,92 @@ a:hover, a:focus, a:active,
   border-collapse: separate;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/third-party\/_foresight\.scss}line{font-family:\000031}}
-.fs-img {
-  font-family: 'image-set( url(http://cdn.shopify.com/{directory}{filename}.w600.{ext}) 2x high-bandwidth )';
-  display: none;
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/kissen\/_card\.scss}line{font-family:\000031}}
+.card {
+  overflow: hidden;
+  border-radius: 2px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  -webkit-transition: box-shadow 0.15s linear;
+  -moz-transition: box-shadow 0.15s linear;
+  -o-transition: box-shadow 0.15s linear;
+  transition: box-shadow 0.15s linear;
+  -webkit-box-shadow: 0.1em 0.1em 0.1em rgba(0, 0, 0, 0.1), -0.1em 0.1em 0.1em rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0.1em 0.1em 0.1em rgba(0, 0, 0, 0.1), -0.1em 0.1em 0.1em rgba(0, 0, 0, 0.1);
+  box-shadow: 0.1em 0.1em 0.1em rgba(0, 0, 0, 0.1), -0.1em 0.1em 0.1em rgba(0, 0, 0, 0.1);
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
-@media (min-width: 300px) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/third-party\/_foresight\.scss}line{font-family:\000038}}
-  .fs-img {
-    font-family: 'image-set( url(http://cdn.shopify.com/{directory}{filename}.w600.{ext}), url(http://cdn.shopify.com/{directory}{filename}.w1200.{ext}) 2x high-bandwidth )';
-  }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/kissen\/_card\.scss}line{font-family:\0000318}}
+.card__image-holder {
+  line-height: 0;
 }
-@media (min-width: 600px) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/third-party\/_foresight\.scss}line{font-family:\0000313}}
-  .fs-img {
-    font-family: 'image-set( url(http://cdn.shopify.com/{directory}{filename}.w1200.{ext}), url(http://cdn.shopify.com/{directory}{filename}.w2400.{ext}) 2x high-bandwidth )';
-  }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/kissen\/_card\.scss}line{font-family:\0000324}}
+.card__image-holder:before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.1);
+  -webkit-transition: background 0.15s linear;
+  -moz-transition: background 0.15s linear;
+  -o-transition: background 0.15s linear;
+  transition: background 0.15s linear;
 }
-@media (min-width: 1200px) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/third-party\/_foresight\.scss}line{font-family:\0000318}}
-  .fs-img {
-    font-family: 'image-set( url(http://cdn.shopify.com/{directory}{filename}.w2400.{ext})';
-  }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/kissen\/_card\.scss}line{font-family:\0000338}}
+.card__image-holder:hover:before, .card__image-holder:focus:before {
+  background: rgba(0, 0, 0, 0);
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/kissen\/_card\.scss}line{font-family:\0000343}}
+.card__image {
+  height: 12em;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/kissen\/_card\.scss}line{font-family:\0000348}}
+.card--split .card__image {
+  width: 100%;
+  height: auto;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/kissen\/_card\.scss}line{font-family:\0000358}}
+.card__title--overlay {
+  color: #fff;
+  margin-top: 4em;
+  text-shadow: 0 0 4px #888888;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/kissen\/_card\.scss}line{font-family:\0000371}}
+.card__copy {
+  background-color: #fff;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/kissen\/_card\.scss}line{font-family:\0000383}}
+.card--pillows {
+  background-image: url({{ "all-birds.jpg" | asset_url }});
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/kissen\/_card\.scss}line{font-family:\0000387}}
+.card--bags {
+  background-image: url({{ "mono-clutches.jpg" | asset_url }});
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/kissen\/_search\.scss}line{font-family:\000034}}
+.search-form .search__input {
+  padding-right: 2em;
+  vertical-align: top;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/me\/Documents\/web\/kissen\/shopify\/scss\/kissen\/_search\.scss}line{font-family:\0000311}}
+.search-form .search__button {
+  width: 2em;
+  margin-left: -2em;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  vertical-align: top;
 }
