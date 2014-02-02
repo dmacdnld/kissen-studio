@@ -1,0 +1,89 @@
+.card {
+    @extend .display--block;
+    @extend .repel--bottom;
+
+    overflow: hidden;
+    border-radius: $brand-round;
+    background-repeat: no-repeat;
+    background-position: center center;
+
+    @include transition(box-shadow 0.15s linear);
+    @include box-shadow(
+        0.1em 0.1em 0.1em rgba(0, 0, 0, 0.1),
+        -0.1em 0.1em 0.1em rgba(0, 0, 0, 0.1)
+    );
+    @include background-size("cover");
+}
+
+.card__image-holder {
+    @extend .relative;
+    @extend .display--block;
+
+    line-height: 0;
+
+    &:before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.1);
+
+        @include transition(background 0.15s linear);
+    }
+
+    &:hover:before,
+    &:focus:before {
+        background: rgba(0, 0, 0, 0.0)
+    }
+}
+
+.card__image {
+    height: 12em;
+}
+
+.card--split {
+    .card__image {
+        width: 100%;
+        height: auto;
+    }
+}
+
+.card__title {
+    @extend .weight--bold;
+}
+
+.card__title--overlay {
+    @extend .display--inline-block;
+    @extend .one-whole;
+    @extend .gamma;
+    @extend .text--center;
+    @extend .text--uppercase;
+
+    color: #fff;
+    margin-top: 4em;
+
+    @include text-shadow(0 0 4px #888);
+}
+
+.card__copy {
+    @extend .soft-half;
+
+    background-color: #fff;
+
+    .card__title {
+        @extend .epsilon;
+        @extend .text--capitalize;
+    }
+
+}
+
+.card--pillows {
+    background-image: url(#{"{{ \"all-birds.jpg\" | asset_url }}"});
+}
+
+.card--bags {
+    background-image: url(#{"{{ \"mono-clutches.jpg\" | asset_url }}"});
+}

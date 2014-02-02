@@ -1,0 +1,11 @@
+.logo__object {
+    width: 45px;
+    height: 45px;
+}
+
+@media only screen and (min-width:$lap-start) {
+    .logo__object {
+        width: 60px;
+        height: 60px;
+    }
+}

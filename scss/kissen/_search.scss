@@ -1,0 +1,22 @@
+.search-form {
+    @extend .nowrap;
+
+    .search__input {
+        @extend .text-input;
+
+        padding-right: 2em;
+        vertical-align: top;
+    }
+
+    .search__button {
+        @extend .button;
+        @extend .button--positive;
+        @extend .button--small;
+
+        width: 2em;
+        margin-left: -2em;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        vertical-align: top;
+    }
+}
