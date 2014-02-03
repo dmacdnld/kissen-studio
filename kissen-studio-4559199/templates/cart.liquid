@@ -12,41 +12,23 @@
                             </div><!--
                          --><div class="grid__item two-thirds">
                                 <div class="grid">
-                                    <div class="grid__item one-half vert--top">
+                                    <div class="grid__item three-fifths vert--top text--right">
                                         {{ item.price | money }}
                                     </div><!--
-                                 --><div class="grid__item one-third vert--top">
-                                        <select name="updates[{{ item.variant.id }}]" id="quantity-{{ item.variant.id }}">
-                                            {% for item.product.variant.inventory_quantity %}
-                                                <option value="{{ forloop.index }}" {% if forloop.index == item.quantity %}selected{% endif %}>{{ forloop.index }}</option>
+                                 --><div class="grid__item two-fifths vert--top">
+                                        <select class="one-whole" name="updates[{{ item.variant.id }}]" id="quantity-{{ item.variant.id }}">
+                                            {% for i in (1..item.variant.inventory_quantity) %}
+                                                <option value="{{ i }}" {% if i == item.quantity %}selected{% endif %}>{{ i }}</option>
                                             {% endfor %}
                                         </select>
-                                        <!-- <input type="text" size="4" pattern="[0-9]*" name="updates[{{item.variant.id}}]" id="quantity-{{ item.variant.id }}" class="quantity" value="{{ item.quantity }}" min="1"> -->
                                     </div>
                                 </div>
-                                <div class="text--right milli">
+                                <div class="text--right milli repel-half--top">
                                     <a href="/cart/change/{{item.variant.id}}?quantity=0">Remove</a>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-                    <!-- <table>
-                        <tr>
-                            <th class="item price">Price</th>
-                            <th class="item qty">Quantity</th>
-                            <th class="item remove">Delete</th>
-                            <th class="item total">Total</th>
-                        </tr>
-                        <tr id="cart-item-{{item.variant.id}}" class="cart-item">
-                            <td class="item price">{{ item.price | money }}</td>
-                            <td class="item qty">
-                                <input type="text" size="4" pattern="[0-9]*" name="updates[{{item.variant.id}}]" id="quantity-{{ item.variant.id }}" class="quantity" value="{{ item.quantity }}" min="1" onfocus="this.select();">
-                            </td>
-                            <td class="item remove"><a href="/cart/change/{{item.variant.id}}?quantity=0">Remove</a></td>
-                            <td class="item price">{{ item.line_price | money }}</td>
-                        </tr>
-                    </table> -->
                 {% endfor %}
                 <div class="text--right">
                     <div class="repel--bottom">Total: <strong>{{ cart.total_price | money }}</strong></div>
