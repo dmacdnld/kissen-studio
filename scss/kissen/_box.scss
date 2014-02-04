@@ -81,32 +81,41 @@
 
 .box--border-all {
     border-width: 1px;
+    border-style: solid;
 }
 
 .box--border-ends {
     border-top-width: 1px;
+    border-top-style: solid;
     border-bottom-width: 1px;
+    border-bottom-style: solid;
 }
 
 .box--border-sides {
     border-right-width: 1px;
+    border-right-style: solid;
     border-left-width: 1px;
+    border-left-style: solid;
 }
 
 .box--border-top {
     border-top-width: 1px;
+    border-top-style: solid;
 }
 
 .box--border-right {
     border-right-width: 1px;
+    border-right-style: solid;
 }
 
 .box--border-bottom {
     border-bottom-width: 1px;
+    border-bottom-style: solid;
 }
 
 .box--border-left {
     border-left-width: 1px;
+    border-left-style: solid;
 }
 
 .box--border-thick {
