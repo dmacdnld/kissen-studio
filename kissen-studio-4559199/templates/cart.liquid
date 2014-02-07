@@ -1,38 +1,61 @@
 <div class="soft-half--sides">
     {% if cart.item_count > 0 %}
         <form action="/cart" method="post" id="cart" class="cart">
-            {% for item in cart.items %}
-                <div class="soft-half box--zeta box--border-bottom">
-                    <a href="{{ item.product.url }}" class="display--block repel-half--bottom">
-                        {{ item.product.title }}
-                    </a>
-                    <div class="grid">
-                        <div class="grid__item one-third vert--middle">
-                            <img class="one-whole" src="{{ item.product.featured_image | product_img_url: 'thumbnail' }}" alt="{{ item.product.featured_image.alt | escape }}">
-                        </div><!--
-                     --><div class="grid__item two-thirds">
-                            <div class="grid">
-                                <div class="grid__item three-fifths vert--top text--right">
-                                    {{ item.price | money }}
-                                </div><!--
-                             --><div class="grid__item two-fifths vert--top">
-                                    <select class="one-whole" name="updates[{{ item.variant.id }}]" id="quantity-{{ item.variant.id }}">
-                                        {% for i in (1..item.variant.inventory_quantity) %}
-                                            <option value="{{ i }}" {% if i == item.quantity %}selected{% endif %}>{{ i }}</option>
-                                        {% endfor %}
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="text--right milli repel-half--top">
-                                <a href="/cart/change/{{item.variant.id}}?quantity=0">Remove</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="repel-half--bottom soft-half box--zeta text--right">
-                    Subtotal: {{ item.price | times: item.quantity | money }}
-                </div>
-            {% endfor %}
+            <table id="cart-table">
+                <colgroup>
+                    <col>
+                    <col>
+                    <col>
+                    <col>
+                    <col>
+                </colgroup>
+                <thead id="cart-head">
+                    <tr>
+                        <th class="cart-head__title" scope="col">Item</th>
+                        <th class="cart-head__price" scope="col">Price</th>
+                        <th class="cart-head__quantity" scope="col"><abbr title="Quantity">Qty</abbr></th>
+                        <th class="cart-head__subtotal" scope="col">Subtotal</th>
+                        <th class="cart-head__options" scope="col">Options</th>
+                    </tr>
+                </thead>
+                <tbody id="cart-body">
+                    {% for item in cart.items %}
+                        <tr class="cart-item">
+                            <th scope="row" class="cart-item__title">
+                                <a href="{{ item.product.url }}" class="display--block">
+                                    <div>{{ item.product.title }}</div>
+                                    <img src="{{ item.product.featured_image | product_img_url: 'thumbnail' }}" alt="{{ item.product.featured_image.alt | escape }}">
+                                </a>
+                            </th>
+                            <td class="cart-item__price">
+                                <dl class="flush--bottom">
+                                    <dt class="label display--inline">Price</dt>
+                                    <dd class="display--inline repel-quarter--left">{{ item.price | money }}</dd>
+                                </dl>
+                            </td>
+                            <td class="cart-item__quantity">
+                                <label for="quantity-{{ item.variant.id }}" class="display--inline">
+                                    <abbr title="Quantity">Qty</abbr>
+                                </label>
+                                <select name="updates[{{ item.variant.id }}]" id="quantity-{{ item.variant.id }}" class="repel-quarter--left">
+                                    {% for i in (1..item.variant.inventory_quantity) %}
+                                        <option value="{{ i }}" {% if i == item.quantity %}selected{% endif %}>{{ i }}</option>
+                                    {% endfor %}
+                                </select>
+                            </td>
+                            <td class="cart-item__subtotal">
+                                <dl class="flush--bottom">
+                                    <dt class="label display--inline">Subtotal</dt>
+                                    <dd class="display--inline repel-quarter--left">{{ item.price | times: item.quantity | money }}</dd>
+                                </dl>
+                            </td>
+                            <td class="cart-item__options">
+                                <a class="milli" href="/cart/change/{{item.variant.id}}?quantity=0">Remove</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
             <div class="text--right">
                 <div class="repel--bottom">Total: <strong>{{ cart.total_price | money }}</strong></div>
                 <input class="button" type="submit" id="update-cart" name="update" value="Update">
