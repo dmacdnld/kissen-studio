@@ -5,7 +5,7 @@
         <img class="one-whole" src="{{ product.featured_image | product_img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
     </div>
     <form action="/cart/add" method="post" enctype="multipart/form-data" class="repel--bottom">
-        <select id="variant_options" name="id" class="repel-half--bottom one-whole">
+        <select id="variant_options" name="id" class="repel-quarter--bottom one-whole">
             {% for variant in product.variants %}
                 {% if variant.available == true %}
                     {% assign price_difference = variant.price | minus: product.price %}
