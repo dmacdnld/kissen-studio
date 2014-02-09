@@ -68,7 +68,7 @@ module.exports = function(grunt) {
         watch: {
             scss: {
                 files: "scss/**/*.scss",
-                tasks: ["compass:dev", "copy:scss", "clean:scss"],
+                tasks: ["compass:dist", "copy:scss", "clean:scss"],
                 options: {
                     interrupt: true
                 }
