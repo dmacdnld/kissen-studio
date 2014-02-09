@@ -54,8 +54,8 @@
             display: block;
 
             @extend .one-whole;
-            @extend .soft-half--ends;
-            @extend .soft--sides;
+            @extend .soft-half;
+            @extend .text--center;
         }
     }
 }
