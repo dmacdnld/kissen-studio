@@ -15,6 +15,11 @@
                 {% endif %}
             {% endfor %}
         </select>
+        <select name="quantity" id="quantity" class="repel-half--bottom one-whole">
+            {% for i in (1..10) %}
+                <option value="{{ i }}">{{ i }}</option>
+            {% endfor %}
+        </select>
         <button type="submit" name="add" id="add" class="button button--positive button--full">Add to Cart</button>
     </form>
     {{ product.description }}
