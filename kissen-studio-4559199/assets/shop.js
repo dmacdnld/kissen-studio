@@ -17,9 +17,9 @@
 
     $(shop.ui.menu)
         .replaceWith(
-            "<button id=\"menu\" class=\"button--text alpha soft-half float--right\" type=\"button\">" +
-                "<span class=\"icon--menu text--center beta line-height--zeta\" aria-hidden=\"true\"></span>" +
+            "<button id=\"menu\" class=\"menu-button\" type=\"button\">" +
                 "<span class=\"accessibility\">Menu</span>" +
+                "<span class=\"menu-button__icon\" aria-hidden=\"true\"></span>" +
             "</button>"
         );
 
