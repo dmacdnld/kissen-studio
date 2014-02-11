@@ -39,6 +39,11 @@
             <a id="menu" class="icon--menu float--right soft-half beta line-height--zeta" href="#footer">
                 <span class="accessibility">Menu</span>
             </a>
+
+            <a id="cart" class="cart-link" href="/cart">
+                <span class="accessibility">Cart</span>
+                <span class="cart-link__icon {% if cart.item_count > 0 %}link--loud{% endif %}" aria-hidden="true"></span>
+            </a>
         </div>
 
         <nav id="main-nav" role="navigation" class="box--white landmark delta hidden">
