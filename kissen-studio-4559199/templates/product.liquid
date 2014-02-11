@@ -1,11 +1,11 @@
 <div class="soft-half--sides">
     <h2 class="repel-quarter--bottom text--tight">{{ product.title }}</h2>
-    <p id="price_display" class="repel-half--bottom delta">{{ product.price | money }}</p>
+    <p id="price-display" class="repel-half--bottom delta">{{ product.price | money }}</p>
     <div class="repel-half--bottom line-height--zeta">
         <img class="one-whole" src="{{ product.featured_image | product_img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
     </div>
     <form action="/cart/add" method="post" enctype="multipart/form-data" class="repel--bottom">
-        <select id="variant_options" name="id" class="repel-quarter--bottom one-whole">
+        <select id="variant-select" name="id" class="repel-quarter--bottom one-whole">
             {% for variant in product.variants %}
                 {% if variant.available == true %}
                     {% assign price_difference = variant.price | minus: product.price %}
@@ -15,7 +15,7 @@
                 {% endif %}
             {% endfor %}
         </select>
-        <select name="quantity" id="quantity" class="repel-half--bottom one-whole">
+        <select name="quantity" id="quantity-select" class="repel-half--bottom one-whole">
             {% for i in (1..10) %}
                 <option value="{{ i }}">{{ i }}</option>
             {% endfor %}
