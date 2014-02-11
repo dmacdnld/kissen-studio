@@ -24,7 +24,7 @@
         );
 
     $(shop.ui.menu)
-        .on("click", function (evt) { console.debug(evt);
+        .on("click", function (evt) {
             shop.toggleMenu();
         })
         .on("keydown", function (evt) {
