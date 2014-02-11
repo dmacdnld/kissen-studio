@@ -1,0 +1,21 @@
+.menu-button {
+    @extend .button--text;
+    @extend .float--right;
+    @extend .soft-half;
+    @extend .alpha;
+
+    &:hover,
+    &:focus,
+    &:active {
+        color: $kissen-pink--alpha;
+        text-decoration: none;
+    }
+
+    .menu-button__icon {
+        @extend [class*="icon--"];
+        @extend .icon--menu;
+        @extend .display--inline-block;
+        @extend .vert--middle;
+        @extend .beta;
+    }
+}
