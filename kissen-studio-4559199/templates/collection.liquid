@@ -1,11 +1,11 @@
-<div class="soft-half--sides">
+<div class="wrapper">
     {% if collection.all_products_count > 0 %}
-        <ul class="grid">
+        <ul class="card-list">
             {% for product in collection.products %}
-                <li class="grid__item palm-and-down-one-whole">
+                {% if forloop.index != 1 %}-->{% endif %}<li class="card-list__item">
                     <div class="card card--split">
                         <a href="{{ product.url }}" class="card__image-holder">
-                            <img class="card__image" src="{{ product.featured_image | product_img_url: 'medium' }}" alt="{{ product.featured_image.alt | escape }}">
+                            <img class="card__image" src="{{ product.featured_image | product_img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
                         </a>
                         <div class="card__copy grid">
                             <div class="grid__item two-thirds">
@@ -16,7 +16,7 @@
                             </div>
                         </div>
                     </div>
-                </li>
+                </li>{% if forloop.index != forloop.length %}<!--{% endif %}
             {% endfor %}
         </ul>
     {% else %}
