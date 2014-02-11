@@ -120,27 +120,27 @@
 
 @if $responsive == true{
 
-@include media-query(palm-and-down){
+@include media-query(palm-and-down) {
     @include grid-setup("palm-and-down-");
 }
 
-@include media-query(palm){
+@include media-query(palm) {
     @include grid-setup("palm-");
 }
 
-@include media-query(lap){
+@include media-query(lap) {
     @include grid-setup("lap-");
 }
 
-@include media-query(lap-and-up){
+@include media-query(lap-and-up) {
     @include grid-setup("lap-and-up-");
 }
 
-@include media-query(portable){
+@include media-query(portable) {
     @include grid-setup("portable-");
 }
 
-@include media-query(desk){
+@include media-query(desk) {
     @include grid-setup("desk-");
 }
 
@@ -151,9 +151,9 @@
  * accomodate much larger screen resolutions.
  */
 
-@if $responsive-extra == true{
+@if $responsive-extra == true {
 
-@include media-query(desk-wide){
+@include media-query(desk-wide) {
     @include grid-setup("desk-wide-");
 }
 
