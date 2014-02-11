@@ -7,3 +7,20 @@ html {
     min-height: 100%;
     color: $base-text-color;
 }
+
+@include media-query(lap-and-up) {
+    header { padding-right: $half-spacing-unit!important; padding-left:  $half-spacing-unit!important; }
+}
+
+body {
+    max-width: 60.2em;
+    margin: 0 auto;
+}
+
+@include media-query(palm) {
+    .wrapper { padding-right: $half-spacing-unit!important; padding-left:  $half-spacing-unit!important; }
+}
+
+@include media-query(lap-and-up) {
+    .wrapper { padding-right: $base-spacing-unit!important; padding-left:  $base-spacing-unit!important; }
+}
