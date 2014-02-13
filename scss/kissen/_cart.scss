@@ -24,42 +24,113 @@
     @extend .zeta;
 
     #cart-head {
-        @extend .hidden;
+        @extend .epsilon;
+
+        display: none;
+
+        @include media-query("lap-and-up") {
+            display: table-header-group;
+        }
+
+        .cart-head__price,
+        .cart-head__subtotal {
+            @extend .text--right;
+        }
+
+        .cart-head__quantity,
+        .cart-head__options {
+            @extend .text--center;
+        }
     }
 
     #cart-body {
-        @extend .display--block;
+        display: block;
+
+        @include media-query("lap-and-up") {
+            display: table-row-group;
+        }
 
         .cart-item {
-            @extend .display--block;
             @extend .soft-half--ends;
 
-            position: relative;
             min-height: 150px;
             border-bottom: 1px dotted $kissen-gray--epsilon;
 
-            th,
-            td {
-                @extend .hard;
-            }
+            @include media-query("palm") {
+                position: relative;
+                display: block;
 
-            td {
-                @extend .display--block;
+                th,
+                td {
+                    padding: none;
+                }
 
-                text-align: right;
+                td {
+                    display: block;
+                    text-align: right;
+                }
             }
 
             .cart-item__title {
-                @extend .display--block;
+                @include media-query("palm") {
+                    display: block;
+                    position: absolute;
+                    width: 60%;
 
-                position: absolute;
-                top: $half-spacing-unit +px;
-                left: 0;
-                width: 70%;
+                    .cart-item__link-text,
+                    .cart-item__link-img {
+                        float: left;
+                    }
+                }
+
+                .cart-item__link-img,
+                .cart-item__link-text {
+                    @extend .vert--middle;
+                }
+
+                .cart-item__link-img {
+                    @extend .repel-half--right;
+                }
+
+                .cart-item__link-text {
+                    @extend .display--inline-block;
+                }
+            }
+
+            .cart-item__term {
+                display: none;
+
+                @include media-query("palm") {
+                    display: inline;
+                    font-weight: bold;
+                    margin-right: $half-spacing-unit/2;
+                }
+            }
+
+            .cart-item__desc {
+                @extend .display--inline;
+                @extend .flush--left;
+            }
+
+            .cart-item__price,
+            .cart-item__subtotal {
+                @extend .text--right;
+            }
+
+            .cart-item__quantity,
+            .cart-item__options {
+                text-align: center;
+
+                @include media-query("palm") {
+                    text-align: right;
+                }
             }
 
             .cart-item__options {
                 @extend .line-height--epsilon;
+                @extend .epsilon;
+
+                color: $base-text-color;
             }
         }
     }

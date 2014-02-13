@@ -1,13 +1,13 @@
-<div class="soft-half--sides">
+<div class="wrapper">
     {% if cart.item_count > 0 %}
         <form action="/cart" method="post" id="cart" class="cart">
             <table id="cart-table">
                 <colgroup>
                     <col>
-                    <col>
-                    <col>
-                    <col>
-                    <col>
+                    <col class="t10">
+                    <col class="t10">
+                    <col class="t10">
+                    <col class="t10">
                 </colgroup>
                 <thead id="cart-head">
                     <tr>
@@ -22,22 +22,22 @@
                     {% for item in cart.items %}
                         <tr class="cart-item">
                             <th scope="row" class="cart-item__title">
-                                <a href="{{ item.product.url }}" class="display--block">
-                                    <div>{{ item.product.title }}</div>
-                                    <img src="{{ item.product.featured_image | product_img_url: 'thumbnail' }}" alt="{{ item.product.featured_image.alt | escape }}">
+                                <a href="{{ item.product.url }}" class="display--inline-block">
+                                    <img class="cart-item__link-img" src="{{ item.product.featured_image | product_img_url: 'thumbnail' }}" alt="{{ item.product.featured_image.alt | escape }}">
+                                    <span class="cart-item__link-text">{{ item.product.title }}</span>
                                 </a>
                             </th>
                             <td class="cart-item__price">
                                 <dl class="flush--bottom">
-                                    <dt class="label display--inline">Price</dt>
-                                    <dd class="display--inline repel-quarter--left">{{ item.price | money }}</dd>
+                                    <dt class="cart-item__term">Price</dt>
+                                    <dd class="cart-item__desc">{{ item.price | money }}</dd>
                                 </dl>
                             </td>
                             <td class="cart-item__quantity">
-                                <label for="quantity-{{ item.variant.id }}" class="display--inline">
+                                <label for="quantity-{{ item.variant.id }}" class="cart-item__term">
                                     <abbr title="Quantity">Qty</abbr>
                                 </label>
-                                <select name="updates[{{ item.variant.id }}]" id="quantity-{{ item.variant.id }}" class="repel-quarter--left">
+                                <select name="updates[{{ item.variant.id }}]" id="quantity-{{ item.variant.id }}" class="cart-item__desc">
                                     {% for i in (1..item.variant.inventory_quantity) %}
                                         <option value="{{ i }}" {% if i == item.quantity %}selected{% endif %}>{{ i }}</option>
                                     {% endfor %}
@@ -45,12 +45,15 @@
                             </td>
                             <td class="cart-item__subtotal">
                                 <dl class="flush--bottom">
-                                    <dt class="label display--inline">Subtotal</dt>
-                                    <dd class="display--inline repel-quarter--left">{{ item.price | times: item.quantity | money }}</dd>
+                                    <dt class="cart-item__term">Subtotal</dt>
+                                    <dd class="cart-item__desc">{{ item.price | times: item.quantity | money }}</dd>
                                 </dl>
                             </td>
                             <td class="cart-item__options">
-                                <a class="milli" href="/cart/change/{{item.variant.id}}?quantity=0">Remove</a>
+                                <a href="/cart/change/{{item.variant.id}}?quantity=0">
+                                    <span class="accessibility">Remove</span>
+                                    <span class="icon--trash" aria-hidden="true"></span>
+                                </a>
                             </td>
                         </tr>
                     {% endfor %}
