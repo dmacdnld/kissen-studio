@@ -8,8 +8,11 @@ html {
     color: $base-text-color;
 }
 
-@include media-query(lap-and-up) {
-    header { padding-right: $half-spacing-unit!important; padding-left:  $half-spacing-unit!important; }
+
+header {
+    @include media-query(lap-and-up) {
+        padding: $half-spacing-unit;
+    }
 }
 
 body {
@@ -17,10 +20,13 @@ body {
     margin: 0 auto;
 }
 
-@include media-query(palm) {
-    .wrapper { padding-right: $half-spacing-unit!important; padding-left:  $half-spacing-unit!important; }
-}
 
-@include media-query(lap-and-up) {
-    .wrapper { padding-right: $base-spacing-unit!important; padding-left:  $base-spacing-unit!important; }
+.wrapper {
+    @include media-query(palm) {
+        padding-right: $half-spacing-unit; padding-left:  $half-spacing-unit;
+    }
+
+    @include media-query(lap-and-up) {
+        padding-right: $base-spacing-unit; padding-left:  $base-spacing-unit;
+    }
 }
