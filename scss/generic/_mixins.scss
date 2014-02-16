@@ -289,42 +289,41 @@ $palm-and-down-end:     $palm-start - 1px;
 $palm-end:              $lap-start - 1px;
 $lap-end:               $desk-start - 1px;
 
-@mixin media-query($media-query){
 @mixin media-query($media-query, $width: 0){
 
     @if $media-query == palm-and-down {
 
-        @media only screen and (max-width:$palm-and-down-end) { @content; }
+        @media only screen and (max-width: $palm-and-down-end) { @content; }
 
     }
 
     @if $media-query == palm {
 
-        @media only screen and (max-width:$palm-end) { @content; }
+        @media only screen and (max-width: $palm-end) { @content; }
 
     }
 
     @if $media-query == lap {
 
-        @media only screen and (min-width:$lap-start) and (max-width:$lap-end) { @content; }
+        @media only screen and (min-width: $lap-start) and (max-width: $lap-end) { @content; }
 
     }
 
     @if $media-query == lap-and-up {
 
-        @media only screen and (min-width:$lap-start) { @content; }
+        @media only screen and (min-width: $lap-start) { @content; }
 
     }
 
     @if $media-query == portable {
 
-        @media only screen and (max-width:$lap-end) { @content; }
+        @media only screen and (max-width: $lap-end) { @content; }
 
     }
 
     @if $media-query == desk {
 
-        @media only screen and (min-width:$desk-start) { @content; }
+        @media only screen and (min-width: $desk-start) { @content; }
 
     }
 
@@ -337,6 +336,7 @@ $lap-end:               $desk-start - 1px;
     @if $media-query == custom {
 
         @media only screen and (max-width: $width) { @content; }
+
     }
 
 }
