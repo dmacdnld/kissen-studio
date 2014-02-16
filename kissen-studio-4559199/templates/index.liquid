@@ -1,30 +1,19 @@
 {% assign page = pages.frontpage %}
-<div class="soft-half--sides">
-    <ul class="grid">
-        <li class="grid__item palm-and-down-one-whole">
-            <a href="{{ collections["new"].url }}" class="card card--{{ collections["new"].title | downcase }} card__image-holder card__image">
-                <span class="card__title card__title--overlay">{{ collections["new"].title }}</span>
-            </a>
-        </li>
-        <li class="grid__item palm-and-down-one-whole">
-            <a href="{{ collections["pillows"].url }}" class="card card--{{ collections["pillows"].title | downcase }} card__image-holder card__image">
-                <span class="card__title card__title--overlay">{{ collections["pillows"].title }}</span>
-            </a>
-        </li>
-        <li class="grid__item palm-and-down-one-whole">
-            <a href="{{ collections["bags"].url }}" class="card card--{{ collections["bags"].title | downcase }} card__image-holder card__image">
-                <span class="card__title card__title--overlay">{{ collections["bags"].title }}</span>
-            </a>
-        </li>
-        <li class="grid__item palm-and-down-one-whole">
-            <a href="{{ collections["books"].url }}" class="card card--{{ collections["books"].title | downcase }} card__image-holder card__image">
-                <span class="card__title card__title--overlay">{{ collections["books"].title }}</span>
-            </a>
-        </li>
-        <li class="grid__item palm-and-down-one-whole">
-            <a href="{{ collections["sale"].url }}" class="card card--{{ collections["sale"].title | downcase }} card__image-holder card__image">
-                <span class="card__title card__title--overlay">{{ collections["sale"].title }}</span>
-            </a>
-        </li>
+<div class="wrapper">
+    <ul class="card-list">
+        {% assign collection = collections.all %}
+        {% for product in collection.products %}
+            {% if forloop.index != 1 %}-->{% endif %}<li class="card-list__item">
+                <div class="card card--split">
+                    <a href="{{ product.url }}" class="card__image-holder">
+                        <img class="card__image" src="{{ product.featured_image | product_img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
+                    </a>
+                    <div class="card__copy">
+                        <a href="{{ product.url }}" class="card__title">{{ product.title }}</a>
+                        <span class="card__price">{{ product.price | money }}</span>
+                    </div>
+                </div>
+            </li>{% if forloop.index != forloop.length %}<!--{% endif %}
+        {% endfor %}
     </ul>
 </div>
