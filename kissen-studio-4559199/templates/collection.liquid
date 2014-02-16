@@ -1,25 +1,17 @@
 <div class="wrapper">
-    {% if collection.all_products_count > 0 %}
-        <ul class="card-list">
-            {% for product in collection.products %}
-                {% if forloop.index != 1 %}-->{% endif %}<li class="card-list__item">
-                    <div class="card card--split">
-                        <a href="{{ product.url }}" class="card__image-holder">
-                            <img class="card__image" src="{{ product.featured_image | product_img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
-                        </a>
-                        <div class="card__copy grid">
-                            <div class="grid__item two-thirds">
-                                <a href="{{ product.url }}" class="card__title">{{ product.title }}</a>
-                            </div><!--
-                         --><div class="grid__item one-third text--right">
-                                <span class="card__price">{{ product.price | money }}</span>
-                            </div>
-                        </div>
+    <ul class="card-list">
+        {% for product in collection.products %}
+            {% if forloop.index != 1 %}-->{% endif %}<li class="card-list__item">
+                <div class="card card--split">
+                    <a href="{{ product.url }}" class="card__image-holder">
+                        <img class="card__image" src="{{ product.featured_image | product_img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
+                    </a>
+                    <div class="card__copy">
+                        <a href="{{ product.url }}" class="card__title">{{ product.title }}</a>
+                        <span class="card__price">{{ product.price | money }}</span>
                     </div>
-                </li>{% if forloop.index != forloop.length %}<!--{% endif %}
-            {% endfor %}
-        </ul>
-    {% else %}
-        <p>Sorry, there are no products in this collection</p>
-    {% endif %}
+                </div>
+            </li>{% if forloop.index != forloop.length %}<!--{% endif %}
+        {% endfor %}
+    </ul>
 </div>
