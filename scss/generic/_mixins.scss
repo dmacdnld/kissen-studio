@@ -290,6 +290,7 @@ $palm-end:              $lap-start - 1px;
 $lap-end:               $desk-start - 1px;
 
 @mixin media-query($media-query){
+@mixin media-query($media-query, $width: 0){
 
     @if $media-query == palm-and-down {
 
@@ -331,6 +332,11 @@ $lap-end:               $desk-start - 1px;
 
         @media only screen and (min-width: $desk-wide-start) { @content; }
 
+    }
+
+    @if $media-query == custom {
+
+        @media only screen and (max-width: $width) { @content; }
     }
 
 }
