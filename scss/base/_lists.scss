@@ -2,6 +2,8 @@
     $LISTS
 \*------------------------------------*/
 li {
+    margin-bottom: $quarter-spacing-unit;
+
     /**
      * Remove vertical spacing from nested lists.
      */
@@ -16,4 +18,10 @@ li {
  */
 /*ul*/.numbered-list {
     list-style-type: decimal;
+}
+
+.unstyled-list {
+    margin-bottom: 0;
+    margin-left: 0;
+    list-style: none;
 }
