@@ -43,7 +43,8 @@
         var quantityOptions = _.map(productData.variants, function (variant) {
                 var i = 1,
                     length = variant.inventory_quantity,
-                    html = [];
+                    html = [],
+                    $clonedQuantitySelect = $(shop.ui.quantitySelect).clone();
 
                 while (i <= length) {
                     html.push("<option value=\"" + i + "\">" + i + "</option>");
@@ -51,8 +52,8 @@
                 }
 
                 return {
-                    variantId: variant.id,
-                    html: html.join(" ")
+                    "variantId": variant.id,
+                    "$select": $clonedQuantitySelect.html(html.join(" "))
                 };
             });
 
@@ -72,14 +73,9 @@
             var selectedVariant = evt.currentTarget.selectedOptions[0],
                 variantQuantityOptions = _.find(quantityOptions, function (option) {
                     return option.variantId === parseInt(selectedVariant.value, 10);
-                }),
-                $newQuantitySelect = $("<select name=\"quantity\" id=\"quantity-select\" class=\"repel-half--bottom one-whole\">");
+                });
 
-            $newQuantitySelect
-                .append(variantQuantityOptions.html);
-
-            $(shop.ui.quantitySelect).replaceWith($newQuantitySelect);
-
+            $(shop.ui.quantitySelect).replaceWith(variantQuantityOptions.$select);
             $(shop.ui.productPrice).text(selectedVariant.dataset.price);
         }).change();
     }
