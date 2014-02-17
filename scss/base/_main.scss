@@ -10,7 +10,10 @@ html {
 
 
 header {
+    margin-bottom: $half-spacing-unit;
+
     @include media-query(lap-and-up) {
+        margin-bottom: $base-spacing-unit;
         padding: $half-spacing-unit;
     }
 }
