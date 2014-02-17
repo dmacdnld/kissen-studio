@@ -6,8 +6,10 @@
  * Demo: jsfiddle.net/inuitcss/MhHHU
  *
  */
-fieldset{
-    padding:$base-spacing-unit;
+fieldset {
+    @extend .hard;
+
+    border: none;
 }
 
 
