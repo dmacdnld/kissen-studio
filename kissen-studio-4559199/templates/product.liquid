@@ -1,30 +1,59 @@
-<div class="soft-half--sides">
-    <h2 class="repel-quarter--bottom text--tight">{{ product.title }}</h2>
-    <p id="price-display" class="repel-half--bottom delta">{{ product.price | money }}</p>
-    <div class="repel-half--bottom line-height--zeta">
-        <img class="one-whole" src="{{ product.featured_image | product_img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
+<div class="wrapper">
+    <div class="grid">
+        <div class="grid__item one-whole lap-and-up-one-half">
+            <div id="product-images-container">
+                <ul id="product-image-list">
+                    {% for image in product.images %}
+                        <li class="product-image-list__item {% unless image.id == product.featured_image.id %}hidden{% endunless %}">
+                            <img id="product-image-{{ image.id }}" src="{{ image.src | product_img_url: 'large' }}" alt="{{ image.alt | escape }}">
+                        </li>
+                    {% endfor %}
+                </ul>
+                <ul id="product-thumbnail-list" class="hidden">
+                    {% for image in product.images %}
+                        <li class="product-thumbnail-list__item">
+                            <img id="product-thumbnail-{{ image.id }}" src="{{ image.src | product_img_url: 'small' }}" alt="{{ image.alt | escape }}" />
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div><!--
+     --><div class="grid__item one-whole lap-and-up-one-half">
+            <h1 id="product-title">{{ product.title }}</h1>
+            <div id="product-price">{{ product.price | money }}</div>
+            <small id="product-shipping-message">Free shipping on orders over $150</small>
+            <form id="product-form" action="/cart/add" method="post" enctype="multipart/form-data">
+                <fieldset>
+                    {% if product.variants.size > 1 %}
+                        <legend class="accessibility">Product Options</legend>
+                        {% for option in product.options %}
+                            <label for="variant-select">{{ option }}</label>
+                            <select id="variant-select" name="id" class="product-select">
+                                {% for variant in product.variants %}
+                                    {% if variant.available == true %}
+                                        {% assign price_difference = variant.price | minus: product.price %}
+                                        <option value="{{variant.id}}" data-price="{{ variant.price | money }}">{{ variant.title }} {% if price_difference > 0%}+{{ price_difference | money }}{% endif %}</option>
+                                    {% else %}
+                                        <option disabled="disabled">{{ variant.title }} - sold out!</option>
+                                    {% endif %}
+                                {% endfor %}
+                            </select>
+                        {% endfor %}
+                    {% endif %}
+                    <label for="quantity-select">Quantity</label>
+                    <select name="quantity" id="quantity-select" class="product-select">
+                        {% for i in (1..10) %}
+                            <option value="{{ i }}">{{ i }}</option>
+                        {% endfor %}
+                    </select>
+                </fieldset>
+                <button type="submit" name="add" id="product-add-button">Add to Cart</button>
+            </form>
+            {{ product.description }}
+        </div>
     </div>
-    <form action="/cart/add" method="post" enctype="multipart/form-data" class="repel--bottom">
-        <select id="variant-select" name="id" class="repel-quarter--bottom one-whole">
-            {% for variant in product.variants %}
-                {% if variant.available == true %}
-                    {% assign price_difference = variant.price | minus: product.price %}
-                    <option value="{{variant.id}}" data-price="{{ variant.price | money }}">{{ variant.title }} {% if price_difference > 0 %}+{{ price_difference | money }}{% endif %}</option>
-                {% else %}
-                    <option disabled="disabled">{{ variant.title }} - sold out!</option>
-                {% endif %}
-            {% endfor %}
-        </select>
-        <select name="quantity" id="quantity-select" class="repel-half--bottom one-whole">
-            {% for i in (1..10) %}
-                <option value="{{ i }}">{{ i }}</option>
-            {% endfor %}
-        </select>
-        <button type="submit" name="add" id="add" class="button button--positive button--full">Add to Cart</button>
-    </form>
-    {{ product.description }}
 </div>
 
 <script>
-  var productData = {{ product | json }}
+  var productData = {{ product | json }};
 </script>
