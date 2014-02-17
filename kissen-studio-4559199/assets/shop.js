@@ -6,7 +6,9 @@
             mainNav: "#main-nav",
             productPrice: "#product-price",
             variantSelect: "#variant-select",
-            quantitySelect: "#quantity-select"
+            quantitySelect: "#quantity-select",
+            productImageListItems: ".product-image-list__item",
+            productThumbnailList: "#product-thumbnail-list"
         },
 
         toggleMenu: function (shouldHide) {
@@ -52,6 +54,18 @@
                     variantId: variant.id,
                     html: html.join(" ")
                 };
+            });
+
+        $(shop.ui.productThumbnailList)
+            .removeClass("hidden")
+            .on("click", "img", function (evt) {
+                var imageId = evt.currentTarget.id.split("-")[2];
+
+                $(shop.ui.productImageListItems).addClass("hidden");
+
+                $("#product-image-" + imageId)
+                    .parent()
+                    .removeClass("hidden");
             });
 
         $(shop.ui.variantSelect).on("change", function (evt) {
