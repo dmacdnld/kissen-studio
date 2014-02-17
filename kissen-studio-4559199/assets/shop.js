@@ -4,7 +4,7 @@
             mainHeader: "#main-header",
             menu: "#menu",
             mainNav: "#main-nav",
-            priceDisplay: "#price-display",
+            productPrice: "#product-price",
             variantSelect: "#variant-select",
             quantitySelect: "#quantity-select"
         },
@@ -66,7 +66,7 @@
 
             $(shop.ui.quantitySelect).replaceWith($newQuantitySelect);
 
-            $(shop.ui.priceDisplay).text(selectedVariant.dataset.price);
+            $(shop.ui.productPrice).text(selectedVariant.dataset.price);
         }).change();
     }
 })(jQuery, _);

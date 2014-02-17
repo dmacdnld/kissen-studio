@@ -25,23 +25,18 @@
     @extend .repel--bottom;
 
     max-width: 22em;
-    border-radius: $brand-round;
-    background-repeat: no-repeat;
-    background-position: center center;
-    overflow: hidden;
 
-    @include transition(box-shadow 0.15s linear);
     @include box-shadow(
         0 1px 1px 0 rgba(0, 0, 0, 0.18)
     );
-    @include background-size("cover");
 }
 
-.card__image-holder {
+.card__image-container {
     @extend .relative;
     @extend .display--block;
+    @extend .line-height--zeta;
 
-    line-height: 0;
+    @include transition(box-shadow 0.15s linear);
 
     &:before {
         content: "";
@@ -62,36 +57,9 @@
     }
 }
 
-.card__image {
-    height: 12em;
-}
-
-.card--split {
-    .card__image {
-        width: 100%;
-        height: auto;
-    }
-}
-
-.card__title--overlay {
-    @extend .display--inline-block;
-    @extend .one-whole;
-    @extend .gamma;
-    @extend .weight--bold;
-    @extend .text--center;
-    @extend .text--uppercase;
-
-    color: #fff;
-    margin-top: 4em;
-
-    @include text-shadow(0 0 4px #888);
-}
-
 .card__copy {
     @extend .soft-half;
     @extend .text--left;
-
-    background-color: #fff;
 
     .card__title {
         @extend .display--block;

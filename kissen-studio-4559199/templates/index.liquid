@@ -5,7 +5,7 @@
         {% for product in collection.products %}
             {% if forloop.index != 1 %}-->{% endif %}<li class="card-list__item">
                 <div class="card card--split">
-                    <a href="{{ product.url }}" class="card__image-holder">
+                    <a href="{{ product.url }}" class="card__image-container">
                         <img class="card__image" src="{{ product.featured_image | product_img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
                     </a>
                     <div class="card__copy">
