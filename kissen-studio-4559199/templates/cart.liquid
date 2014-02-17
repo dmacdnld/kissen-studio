@@ -24,7 +24,16 @@
                             <th scope="row" class="cart-item__title">
                                 <a href="{{ item.product.url }}" class="display--inline-block">
                                     <img class="cart-item__link-img" src="{{ item.product.featured_image | product_img_url: 'thumbnail' }}" alt="{{ item.product.featured_image.alt | escape }}">
-                                    <span class="cart-item__link-text">{{ item.product.title }}</span>
+                                    <div class="cart-item__link-copy">
+                                        <span class="cart-item__name">{{ item.product.title }}</span>
+                                        {% if item.product.variants.size > 1 %}
+                                            {% for option in item.product.options %}
+                                                {% if item.variant.options[forloop.index0] %}
+                                                    <span class="cart-item__variant">{{ option }} - {{ item.variant.options[forloop.index0] }}</span>
+                                                {% endif %}
+                                            {% endfor %}
+                                        {% endif %}
+                                    </div>
                                 </a>
                             </th>
                             <td class="cart-item__price">
