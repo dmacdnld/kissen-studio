@@ -333,9 +333,15 @@ $lap-end:               $desk-start - 1px;
 
     }
 
-    @if $media-query == custom {
+    @if $media-query == custom-down {
 
         @media only screen and (max-width: $width) { @content; }
+
+    }
+
+    @if $media-query == custom-up {
+
+        @media only screen and (min-width: $width) { @content; }
 
     }
 

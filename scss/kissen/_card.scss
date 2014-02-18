@@ -2,7 +2,7 @@
     @extend .grid;
     @extend .display--inline-block;
 
-    @include media-query(custom, 500px) {
+    @include media-query(custom-down, 500px) {
         text-align: center;
     }
 
@@ -10,11 +10,11 @@
         @extend .grid__item;
         @extend .one-third;
 
-        @include media-query(custom, 700px) {
+        @include media-query(custom-down, 700px) {
             width: 50%;
         }
 
-        @include media-query(custom, 500px) {
+        @include media-query(custom-down, 500px) {
             width: auto;
         }
     }
