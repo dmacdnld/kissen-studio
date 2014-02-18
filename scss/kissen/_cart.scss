@@ -1,4 +1,4 @@
-.cart-link {
+#cart-link {
     @extend .float--right;
     @extend .soft-half;
     @extend .alpha;
@@ -10,7 +10,14 @@
         text-decoration: none;
     }
 
-    .cart-link__icon {
+    @include media-query(custom-up, 750px) {
+        position: relative;
+        float: right;
+        top: 18px;
+        line-height: 0;
+    }
+
+    #cart-link__icon {
         @extend [class*="icon--"];
         @extend .icon--cart;
         @extend .display--inline-block;

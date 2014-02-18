@@ -1,11 +1,31 @@
-.logo__object {
-    width: 45px;
-    height: 45px;
-}
+#logo {
+    @extend .flush--bottom;
+    @extend .soft-half;
+    @extend .line-height--zeta;
 
-@media only screen and (min-width:$lap-start) {
-    .logo__object {
-        width: 60px;
-        height: 60px;
+    float: left;
+
+    @include media-query(custom-up, 750px) {
+        display: inline-block;
+        float: none;
+        vertical-align: middle;
+    }
+
+    #logo__object {
+        width: 45px;
+        height: 45px;
+
+        > img {
+            width: 100%;
+        }
+    }
+
+    @include media-query(lap-and-up) {
+        #logo__object {
+            width: 60px;
+            height: 60px;
+        }
     }
 }
+
+

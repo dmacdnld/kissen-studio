@@ -4,33 +4,32 @@
 <!--[if IE 8]><html class="no-js lt-ie9" lang="en"> <![endif]-->
 <!--[if IE 9 ]><html class="ie9 no-js"> <![endif]-->
 <!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js"> <!--<![endif]-->
-<head>
-    <meta charset="utf-8">
-    {% if template == "index" %}
-        <title>{{ shop.name }}</title>
-    {% elsif template == "404" %}
-        <title>Page Not Found | {{ shop.name }}</title>
-    {% else %}
-        <title>{{ page_title }} | {{ shop.name }}</title>
-    {% endif %}
-    {% if page_description %}
-        <meta name="description" content="{{ page_description }}">
-    {% endif %}
-    <link rel="canonical" href="{{ canonical_url }}">
-    <meta name="viewport" content="width=device-width">
-    {{ content_for_header }}
-    {{ "modernizr-2.6.2.min.js" | asset_url | script_tag }}
-    <link href="http://fonts.googleapis.com/css?family=Lato:300,700,300italic" rel="stylesheet" type="text/css">
-    {{ "style.css" | asset_url | stylesheet_tag }}
-</head>
-<body id="{{ page_title | handle }}" class="template-{{ template | replace: '.', ' ' | truncatewords: 1, ' | handle }}" >
+    <head>
+        <meta charset="utf-8">
+        {% if template == "index" %}
+            <title>{{ shop.name }}</title>
+        {% elsif template == "404" %}
+            <title>Page Not Found | {{ shop.name }}</title>
+        {% else %}
+            <title>{{ page_title }} | {{ shop.name }}</title>
+        {% endif %}
+        {% if page_description %}
+            <meta name="description" content="{{ page_description }}">
+        {% endif %}
+        <link rel="canonical" href="{{ canonical_url }}">
+        <meta name="viewport" content="width=device-width">
+        {{ content_for_header }}
+        {{ "modernizr-2.6.2.min.js" | asset_url | script_tag }}
+        <link href="http://fonts.googleapis.com/css?family=Lato:300,700,300italic" rel="stylesheet" type="text/css">
+        {{ "style.css" | asset_url | stylesheet_tag }}
+    </head>
+    <body id="{{ page_title | handle }}" class="template-{{ template | replace: '.', ' ' | truncatewords: 1, ' | handle }}" >
 
-    <header id="main-header" role="banner">
-        <div class="box--white cf">
-            <h1 id="logo" class="float--left line-height--zeta soft-half flush--bottom">
+        <header id="main-header" role="banner" class="cf">
+            <h1 id="logo">
                 <a href="http://www.kissenstudio.com" class="link--svg">
-                    <object class="logo__object" data="{{ "logo--pink.svg" | asset_url }}" role="img" title="Kissen Studio">
-                        <img class="one-whole" alt="Kissen Studio logo" src="{{ "logo--pink.png" | asset_url }}">
+                    <object id="logo__object" data="{{ "logo--pink.svg" | asset_url }}" role="img" title="Kissen Studio">
+                        <img alt="Kissen Studio logo" src="{{ "logo--pink.png" | asset_url }}">
                     </object>
                     <span class="accessibility">Kissen Studio</span>
                 </a>
@@ -41,59 +40,59 @@
                 <span id="menu-trigger__icon" aria-hidden="true"></span>
             </a>
 
-            <a id="cart" class="cart-link" href="/cart">
+            <a id="cart-link" href="/cart">
                 <span class="accessibility">Cart</span>
-                <span class="cart-link__icon {% if cart.item_count > 0 %}link--loud{% endif %}" aria-hidden="true"></span>
+                <span id="cart-link__icon" {% if cart.item_count > 0 %}class="link--loud"{% endif %} aria-hidden="true"></span>
             </a>
-        </div>
 
-        <nav id="main-nav" role="navigation" class="box--white landmark delta hidden">
-            <h2 class="accessibility">Main navigation</h2>
-            <ul class="nav nav--stacked one-whole repel-half--bottom">
-                <li class="soft-half">
-                    <form action="/search" method="get" class="search-form" role="search">
-                        <label class="accessibility" for="search">Search</label>
-                        <input id="search" class="search__input one-whole" name="q" type="text" placeholder="Search"><!--
-                     --><button class="search__button" type="submit">
-                            <span class="accessibility">Search</span>
-                            <span class="icon--search" aria-hidden="true"></span>
-                        </button>
-                    </form>
-                </li>
-                {% for link in linklists.main-menu.links %}
+            <nav id="main-nav" role="navigation">
+                <h2 class="accessibility">Main navigation</h2>
+                <ul>
                     <li>
-                        <a href="{{ link.url }}">{{ link.title }}</a>
+                        <form action="/search" method="get" class="search-form" role="search">
+                            <label class="accessibility" for="search">Search</label>
+                            <input id="search" class="search__input one-whole" name="q" type="text" placeholder="Search"><!--
+                         --><button class="search__button" type="submit">
+                                <span class="accessibility">Search</span>
+                                <span class="search__icon" aria-hidden="true"></span>
+                            </button>
+                        </form>
                     </li>
-                {% endfor %}
-            </ul>
-        </nav>
-    </header>
+                    {% for link in linklists.main-menu.links %}
+                        <li>
+                            <a href="{{ link.url }}">{{ link.title }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </nav>
+        </header>
 
-    {% if template == "list-collections" %}
-        {% include "collection-listing" %}
-    {% else %}
-        {{ content_for_layout }}
-    {% endif %}
+        {% if template == "list-collections" %}
+            {% include "collection-listing" %}
+        {% else %}
+            {{ content_for_layout }}
+        {% endif %}
 
-    <footer class="repel--top" id="footer" role="contentinfo">
-        <nav class="box--zeta soft--ends" role="navigation">
-            <ul class="nav nav--stacked">
-                {% for link in linklists.main-menu.links %}
-                    <li><a class="one-whole link" href="{{ link.url }}">{{ link.title }}</a></li>
-                {% endfor %}
-            </ul>
-            <ul class="nav nav--stacked flush--bottom">
-                {% for link in linklists.footer.links %}
-                    <li><a class="one-whole link" href="{{ link.url }}">{{ link.title }}</a></li>
-                {% endfor %}
-            </ul>
-        </nav>
+        <footer class="repel--top" id="footer" role="contentinfo">
+            <nav class="box--zeta soft--ends" role="navigation">
+                <ul class="nav nav--stacked">
+                    {% for link in linklists.main-menu.links %}
+                        <li><a class="one-whole link" href="{{ link.url }}">{{ link.title }}</a></li>
+                    {% endfor %}
+                </ul>
+                <ul class="nav nav--stacked flush--bottom">
+                    {% for link in linklists.footer.links %}
+                        <li><a class="one-whole link" href="{{ link.url }}">{{ link.title }}</a></li>
+                    {% endfor %}
+                </ul>
+            </nav>
 
-        <p class="flush--bottom soft-quarter--ends soft-half--sides milli">© Copyright 2014 Kissen Studio. All Rights Reserved.</p>
-    </footer>
+            <p class="flush--bottom soft-quarter--ends soft-half--sides milli">© Copyright 2014 Kissen Studio. All Rights Reserved.</p>
+        </footer>
 
-    <script src="//code.jquery.com/jquery-2.0.3.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
-    {{ "shop.js"  | asset_url | script_tag }}
+        <script src="//code.jquery.com/jquery-2.0.3.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
+        {{ "shop.js"  | asset_url | script_tag }}
 
-</body></html>
+    </body>
+</html>
