@@ -1,4 +1,4 @@
-.menu-button {
+#menu-trigger {
     @extend .button--text;
     @extend .float--right;
     @extend .soft-half;
@@ -11,7 +11,11 @@
         text-decoration: none;
     }
 
-    .menu-button__icon {
+    @include media-query(custom-up, 750px) {
+        display: none;
+    }
+
+    #menu-trigger__icon {
         @extend [class*="icon--"];
         @extend .icon--menu;
         @extend .display--inline-block;

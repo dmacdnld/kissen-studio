@@ -2,7 +2,7 @@
     var shop = {
         ui: {
             mainHeader: "#main-header",
-            menu: "#menu",
+            menuTrigger: "#menu-trigger",
             mainNav: "#main-nav",
             productPrice: "#product-price",
             variantSelect: "#variant-select",
@@ -13,19 +13,9 @@
 
         toggleMenu: function (shouldHide) {
             $(this.ui.mainNav).toggleClass("hidden", shouldHide);
-            $(this.ui.menu).toggleClass("link--current");
         }
     };
 
-    $(shop.ui.menu)
-        .replaceWith(
-            "<button id=\"menu\" class=\"menu-button\" type=\"button\">" +
-                "<span class=\"accessibility\">Menu</span>" +
-                "<span class=\"menu-button__icon\" aria-hidden=\"true\"></span>" +
-            "</button>"
-        );
-
-    $(shop.ui.menu)
         .on("click", function (evt) {
             shop.toggleMenu();
         })
@@ -41,6 +31,7 @@
 
     if (_.contains(_.keys(window), "productData")) {
         var quantityOptions = _.map(productData.variants, function (variant) {
+            $(shop.ui.menuTrigger).toggleClass("link--current");
                 var i = 1,
                     length = variant.inventory_quantity,
                     html = [],
@@ -78,5 +69,14 @@
             $(shop.ui.quantitySelect).replaceWith(variantQuantityOptions.$select);
             $(shop.ui.productPrice).text(selectedVariant.dataset.price);
         }).change();
+    $(shop.ui.menuTrigger)
+        .replaceWith(
+            "<button id=\"menu-trigger\" class=\"menu-trigger\" type=\"button\">" +
+                "<span class=\"accessibility\">Menu</span>" +
+                "<span id=\"menu-trigger__icon\" aria-hidden=\"true\"></span>" +
+            "</button>"
+        );
+
+    $(shop.ui.menuTrigger)
     }
 })(jQuery, _);
