@@ -11,27 +11,22 @@
             productThumbnailList: "#product-thumbnail-list"
         },
 
-        toggleMenu: function (shouldHide) {
-            $(this.ui.mainNav).toggleClass("hidden", shouldHide);
-        }
-    };
+        toggleMenu: function (evt) {
+            var menuShouldDisplay;
 
-        .on("click", function (evt) {
-            shop.toggleMenu();
-        })
-        .on("keydown", function (evt) {
             if (evt.keyCode === 13 || evt.keyCode === 32) {
                 evt.preventDefault();
-                shop.toggleMenu();
             }
             else if (evt.keyCode === 27) {
-                shop.toggleMenu(true);
+                menuShouldDisplay = false;
             }
-        });
 
-    if (_.contains(_.keys(window), "productData")) {
-        var quantityOptions = _.map(productData.variants, function (variant) {
+            $(shop.ui.mainNav).toggleClass("display--block", menuShouldDisplay);
             $(shop.ui.menuTrigger).toggleClass("link--current");
+        },
+
+        getQuantityOptions: function () {
+            return _.map(productData.variants, function (variant) {
                 var i = 1,
                     length = variant.inventory_quantity,
                     html = [],
@@ -47,20 +42,9 @@
                     "$select": $clonedQuantitySelect.html(html.join(" "))
                 };
             });
+        },
 
-        $(shop.ui.productThumbnailList)
-            .removeClass("hidden")
-            .on("click", "img", function (evt) {
-                var imageId = evt.currentTarget.id.split("-")[2];
-
-                $(shop.ui.productImageListItems).addClass("hidden");
-
-                $("#product-image-" + imageId)
-                    .parent()
-                    .removeClass("hidden");
-            });
-
-        $(shop.ui.variantSelect).on("change", function (evt) {
+        swapQuantityOptions: function (evt) {
             var selectedVariant = evt.currentTarget.selectedOptions[0],
                 variantQuantityOptions = _.find(quantityOptions, function (option) {
                     return option.variantId === parseInt(selectedVariant.value, 10);
@@ -68,7 +52,19 @@
 
             $(shop.ui.quantitySelect).replaceWith(variantQuantityOptions.$select);
             $(shop.ui.productPrice).text(selectedVariant.dataset.price);
-        }).change();
+        },
+
+        swapProductImages: function (evt) {
+            var imageId = evt.currentTarget.id.split("-")[2];
+
+            $(shop.ui.productImageListItems).addClass("hidden");
+
+            $("#product-image-" + imageId)
+                .parent()
+                .removeClass("hidden");
+        }
+    };
+
     $(shop.ui.menuTrigger)
         .replaceWith(
             "<button id=\"menu-trigger\" class=\"menu-trigger\" type=\"button\">" +
@@ -78,5 +74,18 @@
         );
 
     $(shop.ui.menuTrigger)
+        .on("click", shop.toggleMenu)
+        .on("keydown", shop.toggleMenu);
+
+    if (_.contains(_.keys(window), "productData")) {
+        var quantityOptions = shop.getQuantityOptions();
+
+        $(shop.ui.productThumbnailList)
+            .removeClass("hidden")
+            .on("click", "img", shop.swapProductImages);
+
+        $(shop.ui.variantSelect)
+            .on("change", shop.swapQuantityOptions)
+            .change();
     }
 })(jQuery, _);
