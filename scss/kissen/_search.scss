@@ -18,5 +18,14 @@
         border-top-left-radius: 0;
         border-bottom-left-radius: 0;
         vertical-align: top;
+
+        .search__icon {
+            @extend [class*="icon--"];
+            @extend .icon--search;
+
+            font-size: 20px;
+            vertical-align: text-top;
+            margin-left: -1px;
+        }
     }
 }
