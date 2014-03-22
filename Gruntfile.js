@@ -37,6 +37,10 @@ module.exports = function(grunt) {
                     {
                         src: "kissen-studio-4559199/assets/style.css",
                         dest: "kissen-studio-4559199/assets/style.css.liquid"
+                    },
+                    {
+                        src: "kissen-studio-4559199/assets/checkout.css",
+                        dest: "kissen-studio-4559199/assets/checkout.css.liquid"
                     }
                 ]
             },
@@ -51,8 +55,8 @@ module.exports = function(grunt) {
         },
 
         clean: {
-            scss: ["kissen-studio-4559199/assets/style.css"],
-            js: ["kissen-studio-4559199/assets/shop.js.liquid"]
+            scss: [ "kissen-studio-4559199/assets/style.css", "kissen-studio-4559199/assets/checkout.css"],
+            js: [ "kissen-studio-4559199/assets/shop.js.liquid" ]
         },
 
         shopify: {
@@ -68,7 +72,7 @@ module.exports = function(grunt) {
         watch: {
             scss: {
                 files: "scss/**/*.scss",
-                tasks: ["compass:dist", "copy:scss", "clean:scss"],
+                tasks: [ "compass:dist", "copy:scss", "clean:scss" ],
                 options: {
                     interrupt: true
                 }
@@ -81,8 +85,8 @@ module.exports = function(grunt) {
                 }
             },
             shopify: {
-                files: ["kissen-studio-4559199/**/*.liquid"],
-                tasks: ["shopify"]
+                files: [ "kissen-studio-4559199/**/*.liquid" ],
+                tasks: [ "shopify" ]
             }
         }
     });
