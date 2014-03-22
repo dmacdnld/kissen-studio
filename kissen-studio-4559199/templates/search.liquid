@@ -1,4 +1,5 @@
-<div class="soft-half--sides">
+<div class="content" role="main">
+    <h1 class="content__title">Search</h1>
     <form action="/search" method="get" class="search-form repel-half--bottom" role="search">
         <label class="accessibility" for="search">Search</label>
         <input id="search" class="search__input one-whole" name="q" type="text" placeholder="Search" value="{% if search.performed %}{{ search.terms }}{% endif %}"><!--
