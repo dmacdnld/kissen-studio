@@ -1,5 +1,10 @@
-<ul>
-  {% for article in blog.articles %}
-  <li><a href="{{ article.url }}">{{ article.title }}</a></li>
-  {% endfor %}
-</ul>
+<div class="content content--skinny">
+    <h1 class="content__title">Blog</h1>
+    <ul>
+        {% for article in blog.articles %}
+            <li>
+                <a href="{{ article.url }}">{{ article.title }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
