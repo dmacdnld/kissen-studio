@@ -5,28 +5,37 @@
 <!--[if IE 9 ]><html class="ie9 no-js" lang="en"> <![endif]-->
 <!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
     <head>
+        <!-- Metadata -->
         <meta charset="utf-8">
-        {% if template == "index" %}
-            <title>{{ shop.name }}</title>
-        {% elsif template == "404" %}
-            <title>Page Not Found | {{ shop.name }}</title>
-        {% else %}
-            <title>{{ page_title }} | {{ shop.name }}</title>
-        {% endif %}
+        <meta name="viewport" content="width=device-width">
         <meta name="msapplication-TileColor" content="#FFFFFF">
         <meta name="msapplication-TileImage" content="{{ 'tileicon.png' | asset_url }}">
+        <meta name="google-site-verification" content="gopDaCxjZ65WuEmxSNOwiNi4-Ddc1JAJV3gAKGfCfuA">
+
+        <!-- Title & Description -->
+        <title>
+            {{ page_title }}
+            {% if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif %}
+            {% if current_page != 1 %} &ndash; Page {{ current_page }}{% endif %}
+            {% unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless %}
+        </title>
         {% if page_description %}
-            <meta name="description" content="{{ page_description }}">
+            <meta name="description" content="{{ page_description | escape }}">
         {% endif %}
+
+        <!-- Links -->
         <link rel="canonical" href="{{ canonical_url }}">
-        <meta name="viewport" content="width=device-width">
         <link rel="apple-touch-icon-precomposed" href="{{ 'apple-touch-icon-152x152-precomposed.png' | asset_url }}">
         <link rel="icon" href="{{ 'favicon.png' | asset_url }}">
         <!--[if IE]><link rel="shortcut icon" href="{{ 'favicon.ico' | asset_url }}"><![endif]-->
         <!-- or, set /favicon.ico for IE10 win -->
-        {{ content_for_header }}
-        {{ "modernizr-2.6.2.min.js" | asset_url | script_tag }}
         <link href="http://fonts.googleapis.com/css?family=Lato:300,700,300italic" rel="stylesheet" type="text/css">
+
+        <!-- Shopify Content for Header -->
+        {{ content_for_header }}
+
+        <!-- Modernizr & CSS -->
+        {{ "modernizr-2.6.2.min.js" | asset_url | script_tag }}
         {{ "style.css" | asset_url | stylesheet_tag }}
     </head>
     <body id="{{ page_title | handle }}" class="template-{{ template | replace: '.', ' ' | truncatewords: 1, ' | handle }}" >
