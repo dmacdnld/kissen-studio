@@ -17,23 +17,19 @@
                 <p class="muted">
                     Showing {% if paginate.next %}{{ paginate.current_offset | plus: paginate.page_size }}{% else %}{{ paginate.items }}{% endif %} of {{ paginate.items }} results.
                 </p>
-                <ol class="grid">
-                    {% for item in search.results %}
-                        <li class="grid__item palm-and-down-one-whole">
+                <ol class="card-list">
+                    {% for product in search.results %}
+                        {% if forloop.index != 1 %}-->{% endif %}<li class="card-list__item">
                             <div class="card card--split">
-                                <a href="{{ item.url }}" class="card__image-holder">
-                                    <img class="card__image" src="{{ item.featured_image | product_img_url: 'medium' }}" alt="{{ item.featured_image.alt | escape }}">
+                                <a href="{{ product.url }}" class="card__image-container">
+                                    <img class="card__image" src="{{ product.featured_image | product_img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
                                 </a>
-                                <div class="card__copy grid">
-                                    <div class="grid__item two-thirds">
-                                        <a href="{{ item.url }}" class="card__title">{{ item.title }}</a>
-                                    </div><!--
-                                 --><div class="grid__item one-third text--right">
-                                        <span class="card__price">{{ item.price | money }}</span>
-                                    </div>
+                                <div class="card__copy">
+                                    <a href="{{ product.url }}" class="card__title">{{ product.title }}</a>
+                                    <span class="card__price">{{ product.price | money }}</span>
                                 </div>
                             </div>
-                        </li>
+                        </li>{% if forloop.index != forloop.length %}<!--{% endif %}
                     {% endfor %}
                 </ol>
             {% endif %}
