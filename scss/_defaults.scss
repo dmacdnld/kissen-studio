@@ -84,7 +84,7 @@ $push:              true!default;
 $palm-and-down-push:false!default;
 $palm-push:         false!default;
 $lap-push:          false!default;
-$lap-and-up-push:   false!default;
+$lap-and-up-push:   true!default;
 $portable-push:     false!default;
 $desk-push:         false!default;
 
@@ -208,7 +208,7 @@ $use-sprite:        false!default;
 $use-icon-text:     false!default;
 $use-beautons:      true!default;
 $use-lozenges:      false!default;
-$use-rules:         false!default;
+$use-rules:         true!default;
 $use-stats:         false!default;
 $use-greybox:       false!default;
 
