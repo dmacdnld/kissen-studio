@@ -1,6 +1,7 @@
-<div class="wrapper">
+<div class="content" role="main">
+    <h1 class="content__title">Cart</h1>
     {% if cart.item_count > 0 %}
-        <form action="/cart" method="post" id="cart" class="cart">
+        <form action="/cart" method="post" id="cart" class="cart" role="form">
             <table id="cart-table">
                 <colgroup>
                     <col>
@@ -59,7 +60,7 @@
                                 </dl>
                             </td>
                             <td class="cart-item__options">
-                                <a href="/cart/change/{{item.variant.id}}?quantity=0">
+                                <a href="/cart/change/{{item.variant.id}}?quantity=0" class="link--action">
                                     <span class="accessibility">Remove</span>
                                     <span class="icon--trash" aria-hidden="true"></span>
                                 </a>
@@ -68,13 +69,13 @@
                     {% endfor %}
                 </tbody>
             </table>
-            <div class="text--right">
+            <div class="text--right repel--bottom">
                 <div class="repel--bottom">Total: <strong>{{ cart.total_price | money }}</strong></div>
-                <input class="button" type="submit" id="update-cart" name="update" value="Update">
-                <input class="button" type="submit" name="checkout" value="Checkout">
+                <input class="button repel-quarter--right" type="submit" id="update-cart" name="update" value="Update">
+                <input class="button button--positive" type="submit" name="checkout" value="Checkout">
             </div>
         </form>
     {% else %}
-        <p>It appears that your cart is currently empty!</p>
+        <p class="text--center gamma">It appears that your cart is currently empty!</p>
     {% endif %}
 </div>
