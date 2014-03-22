@@ -22,7 +22,7 @@
             <h1 id="product-title">{{ product.title }}</h1>
             <div id="product-price">{{ product.price | money }}</div>
             <small id="product-shipping-message">Free shipping on orders over $150</small>
-            <form id="product-form" action="/cart/add" method="post" enctype="multipart/form-data">
+            <form id="product-form" action="/cart/add" method="post" enctype="multipart/form-data" role="form">
                 <fieldset>
                     {% if product.variants.size > 1 %}
                         <legend class="accessibility">Product Options</legend>
