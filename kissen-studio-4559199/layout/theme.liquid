@@ -79,21 +79,55 @@
             {{ content_for_layout }}
         {% endif %}
 
-        <footer class="repel--top" id="footer" role="contentinfo">
-            <nav class="box--zeta soft--ends" role="navigation">
-                <ul class="nav nav--stacked">
-                    {% for link in linklists.main-menu.links %}
-                        <li><a class="one-whole link" href="{{ link.url }}">{{ link.title }}</a></li>
-                    {% endfor %}
-                </ul>
-                <ul class="nav nav--stacked flush--bottom">
-                    {% for link in linklists.footer.links %}
-                        <li><a class="one-whole link" href="{{ link.url }}">{{ link.title }}</a></li>
-                    {% endfor %}
-                </ul>
-            </nav>
+        <footer id="footer" role="contentinfo">
+            <div class="content">
+                <nav role="navigation">
+                    <div class="grid">
+                        <div class="grid__item one-half lap-and-up-one-quarter">
+                            <strong class="display--block repel-half--bottom">Shop</strong>
+                            <ul class="nav nav--stacked">
+                                {% for link in linklists.main-menu.links %}
+                                    <li><a class="link text--left display--inline" href="{{ link.url }}">{{ link.title }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </div><!--
+                     --><div class="grid__item one-half lap-and-up-one-quarter">
+                            <strong class="display--block repel-half--bottom">Help</strong>
+                            <ul class="nav nav--stacked">
+                                {% for link in linklists.help.links %}
+                                    <li><a class="link text--left display--inline" href="{{ link.url }}">{{ link.title }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </div><!--
+                     --><div class="grid__item one-half lap-and-up-one-quarter">
+                            <strong class="display--block repel-half--bottom">Info</strong>
+                            <ul class="nav nav--stacked">
+                                {% for link in linklists.footer.links %}
+                                    <li>
+                                        {% if link.handle == "blog" %}
+                                            <span class="one-whole">{{ link.title }} - <em class="muted">Coming soon!</em></span>
+                                        {% else %}
+                                            <a class="link text--left display--inline" href="{{ link.url }}">{{ link.title }}</a>
+                                        {% endif %}
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div><!--
+                     --><div class="grid__item one-half lap-and-up-one-quarter">
+                            <strong class="display--block repel-half--bottom">Follow me</strong>
+                            <ul class="nav nav--stacked">
+                                {% for link in linklists.social-media.links %}
+                                    <li>
+                                        <a class="link text--left display--inline" href="{{ link.url }}">{{ link.title }}</a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
 
-            <p class="flush--bottom soft-quarter--ends soft-half--sides milli">© Copyright 2014 Kissen Studio. All Rights Reserved.</p>
+                <small>&copy; Copyright 2014 Kissen Studio. All Rights Reserved.</small>
+            </div>
         </footer>
 
         <script src="//code.jquery.com/jquery-2.0.3.min.js"></script>
