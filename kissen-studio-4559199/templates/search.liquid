@@ -10,7 +10,7 @@
     </form>
 
     {% if search.performed %}
-        {% paginate search.results by 10 %}
+        {% paginate search.results by 12 %}
             {% if search.results_count == 0 %}
                 <p>Your search for "{{ search.terms }}" did not yield any results.</p>
             {% else %}
