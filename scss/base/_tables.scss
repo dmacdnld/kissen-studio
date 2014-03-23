@@ -71,12 +71,6 @@ td{
 /**
  * Cell alignments
  */
-[colspan]{
-    text-align:center;
-}
-[colspan="1"]{
-    text-align:left;
-}
 [rowspan]{
     vertical-align:middle;
 }
@@ -160,4 +154,152 @@ td{
  */
 .table--data{
     font:12px/1.5 sans-serif;
+}
+
+
+/**
+ * Responsive table
+ */
+.table--responsive {
+    @extend .one-whole;
+    @extend .zeta;
+
+    .table-head {
+        @extend .epsilon;
+
+        display: none;
+
+        @include media-query("lap-and-up") {
+            display: table-header-group;
+        }
+
+        .table-head__number {
+            @extend .text--right;
+        }
+
+        .table-head__action {
+            @extend .text--center;
+        }
+    }
+
+    .table-body,
+    .table-foot {
+        display: block;
+
+        @include media-query("lap-and-up") {
+            display: table-row-group;
+        }
+
+        .table-row {
+            min-height: 150px;
+            border-bottom: 1px dotted $kissen-gray--epsilon;
+            padding-top: $half-spacing-unit;
+            padding-bottom: $half-spacing-unit;
+
+            @include media-query("palm") {
+                position: relative;
+                display: block;
+                padding-top: $quarter-spacing-unit;
+                padding-bottom: $quarter-spacing-unit;
+
+                th,
+                td {
+                    padding: none;
+                }
+
+                td {
+                    display: block;
+                    text-align: right;
+                }
+            }
+
+            .table-row__title {
+                @include media-query("palm") {
+                    display: block;
+                    position: absolute;
+                    width: 60%;
+
+                    .table-row__img,
+                    .table-row__copy {
+                        float: left;
+                    }
+                }
+
+                .table-row__img,
+                .table-row__copy {
+                    @extend .vert--middle;
+                }
+
+                .table-row__img {
+                    @extend .repel-half--right;
+                }
+
+                .table-row__copy {
+                    @extend .display--inline-block;
+
+                    .table-row__name,
+                    .table-row__variant {
+                        @extend .display--block;
+                        @extend .text--tight;
+                    }
+
+                    .table-row__variant {
+                        @extend .weight--normal;
+                    }
+                }
+
+                &:hover,
+                &:focus {
+                    .table-row__name,
+                    .table-row__variant {
+                        text-decoration: underline;
+                    }
+                }
+            }
+
+            .table-row__term {
+                display: none;
+
+                @include media-query("palm") {
+                    display: inline;
+                    font-weight: bold;
+                    margin-right: $half-spacing-unit/2;
+                }
+            }
+
+            .table-row__desc {
+                @extend .display--inline;
+                @extend .flush--left;
+            }
+
+            .table-row__number {
+                @extend .text--right;
+            }
+
+            .table-row__action {
+                text-align: center;
+
+                @include media-query("palm") {
+                    text-align: right;
+                }
+            }
+        }
+    }
+
+    .table-foot {
+        margin-top: -1px;
+
+        [colspan] {
+            @extend .text--right;
+        }
+
+        .table-row {
+            min-height: 0;
+            border: none;
+
+            &:first-child {
+                border-top: 1px solid $kissen-gray--epsilon;
+            }
+        }
+    }
 }
