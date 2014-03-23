@@ -54,8 +54,8 @@ textarea{
     list-style:none;
     margin:0;
 }
-    .form-fields > li{
-        @extend %sass-margin-bottom;
+    .form-fields > li {
+        margin-bottom: $quarter-spacing-unit;
     }
     .form-fields > li:last-child{
         margin-bottom:0;
