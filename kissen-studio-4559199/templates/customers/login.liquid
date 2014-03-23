@@ -1,0 +1,42 @@
+<div class="content" role="main">
+    <h1 class="content__title">Customer Login</h1>
+
+    {% if shop.checkout.guest_login %}
+        <div class="one-whole lap-and-up-one-third repel--auto repel--bottom delta text--center">
+            {% form 'guest_login' %}
+                Or skip this step and
+                <button class="button button--text button--natural hard" type="submit">continue as Guest</button>
+            {% endform %}
+        </div>
+    {% endif %}
+
+    <div class="one-whole lap-and-up-one-third repel--auto">
+        {% form 'customer_login' %}
+            {% if form.errors %}
+                <div class="alert">The username and/or password you entered is incorrect</div>
+            {% endif %}
+
+            <ul class="form-fields">
+                <li>
+                    <label for="customer_email" class="login">Email Address</label>
+                    <input type="email" value="{{ form.email }}" name="customer[email]" id="customer_email" class="text-input one-whole">
+                </li>
+
+                {% if form.password_needed %}
+                    <li>
+                        <label for="customer_password required">Password</label>
+                        <input type="password" name="customer[password]" id="customer_password" class="text-input one-whole">
+                        <small class="display--block">
+                            <a href="/reset_password">Forgot your password?</a>
+                        </small>
+                    </li>
+                {% endif %}
+
+                <li>
+                    <button class="button button--positive repel-half--right" type="submit">Sign In</button>
+                </li>
+            </ul>
+        {% endform %}
+    </div>
+</div>
+

@@ -1,0 +1,83 @@
+<div class="content" role="main">
+    <h1 class="content__title">Account Details and Order History</h1>
+    <a href="{{ shop.url }}" class="content__back-link"><span>Return to Store</span></a>
+
+    <div class="grid">
+        <div class="grid__item one-whole desk-one-third repel--bottom">
+            <h2 class="gamma">Account Details</h2>
+            <strong class="display--block">{{ customer.name }}</strong>
+            <span class="display--block">{{ customer.email }}</span>
+            {% if customer.default_address != nil %}
+                <span class="display--block">{{ customer.default_address.address1 }}</span>
+                {% if customer.default_address.address2 != "" %}
+                    <span class="display--block">{{ customer.default_address.address2 }}</span>
+                {% endif %}
+                <span class="display--block">{{ customer.default_address.city}}, {% if address.province_code %}{{customer.default_address.province_code}}, {% endif %}{{customer.default_address.country}}</span>
+                <span class="display--block">{{ customer.default_address.zip}}</span>
+                <span class="display--block">{{ customer.default_address.phone }}</span>
+            {% endif %}
+            <a href="/account/addresses" class="display--block">View Addresses ({{ customer.addresses_count }})</a>
+        </div><!--
+     --><div class="grid__item one-whole desk-two-thirds repel--bottom">
+            <h2 class="gamma">Order History</h2>
+            {% if customer.orders.size > 0 %}
+                <table class="table--responsive">
+                    <colgroup>
+                        <col class="t5">
+                        <col>
+                        <col>
+                        <col>
+                        <col class="t10">
+                    </colgroup>
+                    <thead class="table-head">
+                        <tr>
+                            <th scope="col" class="table-head__number">Order</th>
+                            <th scope="col">Date</th>
+                            <th scope="col">Payment Status</th>
+                            <th scope="col">Fulfillment Status</th>
+                            <th scope="col" class="table-head__number">Total</th>
+                        </tr>
+                    </thead>
+                    <tbody class="table-body">
+                        {% for order in customer.orders %}
+                            <tr class="table-row">
+                                <th scope="row" class="table-row__title table-row__number">
+                                    <span class="table-row__copy">
+                                        <span class="table-row__name">{{ order.name | link_to: order.customer_url }}</span>
+                                    </span>
+                                </th>
+                                <td>
+                                    <dl class="flush--bottom">
+                                        <dt class="table-row__term">Date</dt>
+                                        <dd class="table-row__desc nowrap">{{ order.created_at | date: "%b %d, %Y" }}</dd>
+                                    </dl>
+                                </td>
+                                <td>
+                                    <dl class="flush--bottom">
+                                        <dt class="table-row__term">Payment Status</dt>
+                                        <dd class="table-row__desc text--capitalize">{{ order.financial_status }}</dd>
+                                    </dl>
+                                </td>
+                                <td>
+                                    <dl class="flush--bottom">
+                                        <dt class="table-row__term">Fulfillment Status</dt>
+                                        <dd class="table-row__desc text--capitalize">{{ order.fulfillment_status }}</dd>
+                                    </dl>
+                                </td>
+                                <td class="table-row__number">
+                                    <dl class="flush--bottom">
+                                        <dt class="table-row__term">Total</dt>
+                                        <dd class="table-row__desc nowrap">{{ order.total_price | money }}</dd>
+                                    </dl>
+
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+                <p>You haven't placed any orders yet.</p>
+            {% endif %}
+        </div>
+    </div>
+</div>

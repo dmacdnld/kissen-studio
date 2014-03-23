@@ -1,0 +1,40 @@
+<div class="content" role="main">
+    <h1 class="content__title">Create Account</h1>
+
+    <div class="one-whole lap-and-up-one-third repel--auto"></div>
+        {% form 'create_customer' %}
+            <ul class="form-fields">
+                <li>
+                    <label for="first-name">First Name</label>
+                    <input type="text" name="customer[first_name]" id="first-name" class="text-input one-whole lap-and-up-one-third" value="{{ form.first_name }}">
+                </li>
+
+                <li>
+                    <label for="last-name">Last Name</label>
+                    <input type="text" name="customer[last_name]" id="last-name" class="text-input one-whole lap-and-up-one-third" value="{{ form.last_name }}">
+                </li>
+
+                <li>
+                    <label for="email" class="required">Email Address <span class="accessibility">Required</span></label>
+                    <input type="email" name="customer[email]" id="email" class="text-input one-whole lap-and-up-one-third {% if form.errors.messages.form contains 'mail' %}error{% endif %}" value="{{ form.email }}" aria-required="true">
+                    {% if form.errors.messages.form contains "mail can't be blank" %}<span class="error repel-half--left">Please enter an email address</span>{% endif %}
+                    {% if form.errors.messages.form contains "mail is invalid" %}<span class="error repel-half--left">Please enter a valid email address</span>{% endif %}
+                </li>
+
+                <li>
+                    <label for="password" class="required">Password <span class="accessibility">Required</span></label>
+                    <input type="password" name="customer[password]" id="password" class="text-input one-whole lap-and-up-one-third {% if form.errors.messages.form contains 'assword' %}error{% endif %}" aria-required="true">
+                    {% if form.errors.messages.form contains "assword can't be blank" %}<span class="error repel-half--left">Please enter a password</span>{% endif %}
+                    {% if form.errors.messages.form contains "assword is too short" %}<span class="error repel-half--left">Please enter a password of 5 characters or more</span>{% endif %}
+                    <br>
+                    <small>Choose a password with 5 or more characters</small>
+                </li>
+
+                <li>
+                    <button class="button button--positive repel-half--right" type="submit">Create Account</button>
+                    <a href="{{ shop.url }}">Return to Store</a>
+                </li>
+            </ul>
+        {% endform %}
+    </div>
+</div>

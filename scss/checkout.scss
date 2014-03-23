@@ -1,0 +1,364 @@
+@import url("//fonts.googleapis.com/css?family=Lato:300,700,300italic");
+@import "defaults";
+@import "kissen/vars";
+@import "inuit";
+@import "kissen/text";
+@import "kissen/box";
+@import "kissen/fonts";
+@import "kissen/content";
+@import "kissen/alerts";
+@import "kissen/links";
+@import "kissen/form-fields";
+
+
+// Resets
+
+body,
+#overview,
+#header,
+#main,
+.group,
+#email,
+#addresses,
+#buttons,
+#footer {
+    background: #fff;
+}
+
+#overview,
+#products,
+#thumbs div,
+.group,
+.group h3,
+#email,
+#addresses,
+#buttons {
+    border: 0;
+}
+
+#header,
+#header h1,
+#main,
+#overview,
+#content,
+#thumbs div,
+.group,
+#email,
+#addresses,
+#footer {
+    padding: 0;
+}
+
+// Styles
+
+body {
+    font: #{($base-font-size/16px)*1em}/#{$line-height-ratio} $base-font-family;
+    color: $base-text-color;
+}
+
+a {
+    @extend .link;
+
+    letter-spacing: normal;
+}
+
+#container {
+    margin-top: $base-spacing-unit;
+    font-size: 1em;
+}
+
+#container,
+#header,
+#main,
+#footer {
+    width: auto;
+}
+
+#logo,
+#tagline,
+#main,
+#footer {
+    @extend .content;
+}
+
+#main,
+#footer {
+    @extend .content--skinny;
+}
+
+/* Insert your own logo (upload separately) */
+#logo {
+    @extend .repel--ends;
+
+    height: 60px;
+    margin-bottom: $base-spacing-unit;
+    background: url(#{"{{ \"logo--pink.svg\" | asset_url }}"}) 24px no-repeat;
+}
+
+.no-svg #logo {
+    background-image: url(#{"{{ \"logo--pink.png\" | asset_url }}"});
+}
+
+#tagline {
+    @extend .soft--top;
+    @extend .box--white;
+    @extend .soft--top ;
+    @extend .box--border-top;
+
+    margin-bottom: 80px;
+    margin-bottom: 5rem;
+}
+
+.title {
+    display: none;
+}
+
+.subtitle {
+    @extend .display--block;
+    @extend .content__title;
+
+    color: $base-text-color !important;
+
+    &:after {
+        position: relative;
+        right: 9px;
+        display: inline-block;
+        height: 5px;
+        width: 5px;
+        content: "";
+        background-color: #fff;
+        z-index: 1;
+    }
+}
+
+#steps {
+    @extend .gamma;
+
+    position: absolute;
+    top: 200px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    font-family: $base-font-family;
+
+    &:first-letter {
+        text-transform: uppercase;
+    }
+}
+
+#products h2,
+#discounts h3,
+#payment h3,
+#payment-method h3,
+#newsletter h3 {
+    color: $base-text-color !important;
+    font-size: 22px !important;
+    font-size: 1.375rem !important;
+    line-height: 1.09091 !important;
+    font-weight: bold;
+}
+
+#wallet {
+    @extend .hard;
+}
+
+#cost {
+    @extend .gamma;
+
+    font-family: $base-font-family;
+    color: $base-text-color;
+    font-weight: bold;
+    text-shadow: none;
+}
+
+#overview {
+    #tax_span,
+    #shipping_span {
+        @extend .display--block;
+        @extend .epsilon;
+        font-family: $base-font-family;
+        color: $base-text-color;
+    }
+
+    #tax_span {
+        margin-top: -30px;
+    }
+
+    #shipping_span {
+        @extend .repel-quarter--bottom;
+    }
+}
+
+#thumbs td div {
+    @extend .repel-half--right;
+}
+
+#thumbs .plisthead,
+#thumbs .plist-variant-title,
+#thumbs .plist-line-price {
+    @extend .zeta;
+
+    color: $base-text-color;
+}
+
+#gateway-logos,
+#email {
+    @extend .flush--top;
+    @extend .repel--bottom;
+}
+
+#new_order {
+    h3 {
+        @extend .repel--bottom;
+        @extend .gamma;
+        @extend .weight--bold;
+
+        border: 0;
+        color: $base-text-color;
+        text-shadow: none;
+    }
+
+    label {
+        @extend .flush;
+        @extend .zeta;
+
+        line-height: $base-line-height/$base-font-size;
+    }
+
+    .lbl {
+        @extend .vert--middle;
+
+        label {
+            @extend .text--tight;
+        }
+    }
+
+    input {
+        width: 210px;
+        border: 1px solid $kissen-gray--epsilon;
+        border-radius: $brand-round;
+        padding: $quarter-spacing-unit;
+        font-size: 100%;
+    }
+
+    #order_email {
+        width: 290px;
+    }
+
+    li {
+
+    }
+}
+
+#email {
+    .active-customer,
+    .sign-in-message {
+        color: $base-text-color;
+    }
+
+    .active-customer {
+        @extend .flush--ends;
+    }
+
+    .sign-in-message {
+        @extend .display--block;
+        @extend .flush--left;
+        @extend .epsilon;
+    }
+}
+
+#addresses {
+    @extend .grid;
+
+    .gleft,
+    .gright {
+        @extend .grid__item;
+
+        width: 100%;
+
+        @include media-query(custom-up, 630px) {
+            width: 50%;
+            margin-left: 0;
+        }
+    }
+
+    .gright {
+        margin-left: -5px;
+    }
+
+    [for="shipping-toggle"] {
+        @extend .display--inline;
+    }
+}
+
+#shipping-same {
+    @extend .alert;
+}
+
+#buttons {
+    td {
+        @extend .hard;
+    }
+
+    #commit-button,
+    #complete-purchase {
+        @extend .vert--middle;
+        @extend .button;
+        @extend .button--positive;
+        @extend .weight--normal;
+
+        width: auto;
+    }
+}
+
+#cancel-purchase, {
+    @extend .display--inline-block;
+    @extend .repel-quarter--left;
+    @extend .vert--middle;
+    font-size: 1em;
+}
+
+#discounts-body {
+    p {
+        @extend .repel-quarter--bottom;
+    }
+
+    #discount_code {
+        @extend .vert--middle;
+        @extend .text-input;
+    }
+
+    [name="commit"] {
+        @extend .vert--middle;
+        @extend .button;
+        @extend .button--small;
+    }
+}
+
+#credit-card-info {
+    td {
+        @extend .hard;
+    }
+
+    label {
+        @extend .soft-quarter--bottom;
+    }
+
+    select,
+    input {
+        @extend .repel-half--bottom;
+    }
+
+    input {
+        @extend .text-input;
+    }
+}
+
+input[type="checkbox"] + label,
+input[type="radio"] + label {
+    @extend .check-label;
+}
+
+#footer {
+    @extend .flush--bottom;
+}

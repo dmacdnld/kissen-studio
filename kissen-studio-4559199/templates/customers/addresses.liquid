@@ -1,0 +1,79 @@
+<div class="content" role="main">
+    <h1 class="content__title">Address Book</h1>
+    <a href="/account" class="content__back-link"><span>Return to Account</span></a>
+
+    {% if customer.addresses.size == 0 %}
+        <div class="hidden">
+            <h2 id="add_address_title">Add a new address</h4>
+            {% form 'customer_address', customer.new_address %}
+                <fieldset>
+                    <ul class=form-fields>
+                        <li>
+                            <label for="address_first_name_new">First Name</label>
+                            <input type="text" id="address_first_name_new" class="text-input" name="address[first_name]" value="{{form.first_name}}">
+                        </li>
+                        <li>
+                            <label for="address_last_name_new">Last Name</label>
+                            <input type="text" id="address_last_name_new" class="text-input" name="address[last_name]" value="{{form.last_name}}">
+                        </li>
+                        <li>
+                            <label for="address_company_new">Company</label>
+                            <input type="text" for="address_company_new" class="text-input" name="address[company]" value="{{form.company}}">
+                        </li>
+                        <li>
+                            <label for="address_address1_new">Address1</label>
+                            <input type="text" id="address_address1_new" class="text-input" name="address[address1]" value="{{form.address1}}">
+                        </li>
+                        <li>
+                            <label for="address_address2_new">Address2</label>
+                            <input type="text" id="address_address2_new" class="text-input" name="address[address2]" value="{{form.address2}}">
+                        </li>
+                        <li>
+                            <label for="address_city_new">City</label>
+                            <input type="text" id="address_city_new" class="text-input" name="address[city]" value="{{form.city}}">
+                        </li>
+                        <li>
+                            <label for="address_country_new">Country</label>
+                            <select id="address_country_new" name="address[country]" data-default="{{form.country}}">{{ country_option_tags }}</select>
+                        </li>
+                        <li>
+                            <label for="address_province_new">Province</label>
+                            <select id="address_province_new" name="address[province]" data-default="{{form.province}}"></select>
+                        </li>
+                        <li>
+                            <label for="address_zip_new">Zip</label>
+                            <input type="text" id="address_zip_new" class="text-input" name="address[zip]" value="{{form.zip}}">
+                        </li>
+                        <li>
+                            <label for="address_phone_new">Phone</label>
+                            <input type="text" id="address_phone_new" class="text-input" name="address[phone]" value="{{form.phone}}">
+                        </li>
+                        <li>
+                            {{ form.set_as_default_checkbox }} <label for="address_default_address_new" class="check-label repel-quarter--left">Set as Default Address?</label>
+                        </li>
+                    </ul>
+                </fieldset>
+
+                <fieldset>
+                    <button type="submit" class="button button--positive repel-quarter--right">Add Address</button>
+                </fieldset>
+            {% endform %}
+        </div>
+    {% else %}
+        <div class="grid">
+            {% for address in customer.addresses %}
+                {% if forloop.index != 1 %}-->{% endif %}<div class="grid__item one-whole lap-one-half desk-one-third">
+                    <div class="repel-half--bottom soft-half {% if address == customer.default_address %}box--light-blue{% else %}box--zeta{% endif %}">
+                        <strong class="display--block {% unless address == customer.default_address %}repel-quarter--bottom{% endunless %}">{{ address.first_name }} {{address.last_name }}</strong>
+                        {% if address == customer.default_address %}<em class="display--block repel-quarter--bottom">Default address</em>{% endif %}
+                        <span class="display--block">{{ address.company }}</span>
+                        <span class="display--block">{{ address.street }}</span>
+                        <span class="display--block">{{ address.city }} {% if address.province_code %}, {{ address.province_code }}{% endif %}</span>
+                        <span class="display--block">{{ address.country }} {{ address.zip }}</span>
+                        <span class="display--block">{{ address.phone }}</span>
+                    </div>
+                </div>{% if forloop.index != forloop.length %}<!--{% endif %}
+            {% endfor %}
+        </div>
+    {% endif %}
+</div>
