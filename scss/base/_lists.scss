@@ -2,7 +2,7 @@
     $LISTS
 \*------------------------------------*/
 li {
-    margin-bottom: $quarter-spacing-unit;
+    padding: $quarter-spacing-unit/2 0;
 
     /**
      * Remove vertical spacing from nested lists.
