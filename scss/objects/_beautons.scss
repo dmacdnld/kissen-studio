@@ -68,6 +68,8 @@
     padding-right: 1em;          /* [7] */
     padding-left: 1em;           /* [7] */
     border-radius: $brand-round; /* [8] */
+    border: 1px solid darken($kissen-gray--zeta, 10%);
+    background-color: darken($kissen-gray--zeta, 5%);
 }
 
 .button {
@@ -79,7 +81,7 @@
 
     &:active,
     &:focus {
-        outline: none;
+        outline: 1px dotted $kissen-blue--alpha;
     }
 }
 
@@ -178,6 +180,7 @@
  */
 .button--positive {
     background-color: $kissen-pink--alpha;
+    border: 1px solid darken($kissen-pink--alpha, 5%);
     color: #fff;
 }
 
@@ -228,6 +231,7 @@
     border: none;
     color: $kissen-blue--alpha;
 
+    &.button--positive,
     &:hover,
     &:active,
     &:focus {
