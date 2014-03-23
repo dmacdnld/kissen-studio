@@ -52,10 +52,6 @@
 
         > a {
             display: block;
-
-            @extend .one-whole;
-            @extend .soft-half;
-            @extend .text--center;
         }
     }
 }
