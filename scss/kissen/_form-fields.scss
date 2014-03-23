@@ -1,5 +1,15 @@
+.required:after {
+    content: "*";
+    color: red;
+}
+
 .text-input {
-    border: 1px solid $kissen-gray--delta;
+    border: 1px solid $kissen-gray--epsilon;
     border-radius: $brand-round;
     padding: $quarter-spacing-unit;
+
+    &.error {
+        border-color: red;
+        color: $base-text-color;
+    }
 }
