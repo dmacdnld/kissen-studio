@@ -5,25 +5,24 @@
 
     float: left;
 
-    @include media-query(custom-up, 750px) {
-        display: inline-block;
-        float: none;
-        vertical-align: middle;
-    }
+    a {
+        @extend .display--block;
+        @extend .link--svg;
 
-    #logo__object {
-        width: 45px;
-        height: 45px;
-
-        > img {
-            width: 100%;
-        }
-    }
-
-    @include media-query(lap-and-up) {
         #logo__object {
-            width: 60px;
-            height: 60px;
+            width: 45px;
+            height: 45px;
+
+            > img {
+                width: 100%;
+            }
+        }
+
+        @include media-query(lap-and-up) {
+            #logo__object {
+                width: 60px;
+                height: 60px;
+            }
         }
     }
 }
