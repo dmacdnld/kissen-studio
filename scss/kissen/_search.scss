@@ -1,31 +1,91 @@
+#main-search {
+    display: none;
+    position: relative;
+    top: 24px;
+    float: right;
+
+    @include media-query(custom-up, 800px) {
+        display: block;
+    }
+
+    .no-js &.expandable-search-form,
+    &.expandable-search-form--expanded {
+        width: 12em;
+    }
+}
+
+.expandable-search-form {
+    @extend .search-form;
+
+    width: 0%;
+    min-width: 2em;
+    overflow: hidden;
+    -webkit-backface-visibility: hidden;
+
+    @include transition(all, 0.3s);
+
+    .search__input {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100%;
+        border-width: 0;
+    }
+}
+
+.no-js .expandable-search-form,
+.expandable-search-form--expanded {
+    width: 100%;
+
+    .search__input {
+        border-width: 1px;
+    }
+}
+
 .search-form {
     @extend .nowrap;
+    @extend .relative;
+
+    height: 2em;
 
     .search__input {
         @extend .text-input;
 
+        height: 2em;
         padding-right: 2em;
         vertical-align: top;
     }
 
     .search__button {
         @extend .button;
-        @extend .button--positive;
-        @extend .button--small;
+        @extend .button--text;
 
+        position: absolute;
+        top: 0;
+        right: 0;
         width: 2em;
-        margin-left: -2em;
-        border-top-left-radius: 0;
-        border-bottom-left-radius: 0;
-        vertical-align: top;
+        height: 2em;
 
         .search__icon {
+            @extend .display--inline-block;
             @extend [class*="icon--"];
             @extend .icon--search;
 
-            font-size: 20px;
-            vertical-align: text-top;
-            margin-left: -1px;
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 1.6em;
+            height: 1.6em;
+
+            @include font-size(20px, false);
+
+            &:before {
+                @extend .display--inline-block;
+
+                width: inherit;
+                height: inherit;
+                vertical-align: sub;
+            }
         }
     }
 }
