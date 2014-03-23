@@ -1,0 +1,45 @@
+.content {
+    @extend .repel--auto;
+    @extend .landmark;
+
+    max-width: 75em;
+
+    @include media-query(palm) {
+        padding-right: $half-spacing-unit; padding-left:  $half-spacing-unit;
+    }
+
+    @include media-query(lap-and-up) {
+        padding-right: $base-spacing-unit; padding-left:  $base-spacing-unit;
+    }
+
+    .content__title {
+        @extend .beta;
+        @extend .text--center;
+        @extend .weight--normal;
+        @extend .text--uppercase;
+
+        letter-spacing: 0.1em;
+    }
+
+    .content__back-link {
+        @extend .display--inline-block;
+        @extend .repel--bottom;
+
+        &:before {
+            @extend [class*="icon--"];
+            @extend .icon--back;
+            @extend .display--inline-block;
+            @extend .soft-quarter--right;
+            @extend .vert--middle;
+        }
+
+        > span {
+            @extend .display--inline-block;
+            @extend .vert--middle;
+        }
+    }
+}
+
+.content--skinny {
+    max-width: 45em;
+}

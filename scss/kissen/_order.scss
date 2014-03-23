@@ -1,0 +1,134 @@
+#order-table {
+    @extend .one-whole;
+    @extend .zeta;
+
+    #order-head {
+        @extend .epsilon;
+
+        display: none;
+
+        @include media-query("lap-and-up") {
+            display: table-header-group;
+        }
+
+        .order-head__price,
+        .order-head__subtotal {
+            @extend .text--right;
+        }
+
+        .order-head__quantity,
+        .order-head__options {
+            @extend .text--center;
+        }
+    }
+
+    #order-body {
+        display: block;
+
+        @include media-query("lap-and-up") {
+            display: table-row-group;
+        }
+
+        .order-item {
+            @extend .soft-half--ends;
+
+            min-height: 150px;
+            border-bottom: 1px dotted $kissen-gray--epsilon;
+
+            @include media-query("palm") {
+                position: relative;
+                display: block;
+
+                th,
+                td {
+                    padding: none;
+                }
+
+                td {
+                    display: block;
+                    text-align: right;
+                }
+            }
+
+            .order-item__title {
+                @include media-query("palm") {
+                    display: block;
+                    position: absolute;
+                    width: 60%;
+
+                    .order-item__link-img,
+                    .order-item__link-copy {
+                        float: left;
+                    }
+                }
+
+                .order-item__link-img,
+                .order-item__link-copy {
+                    @extend .vert--middle;
+                }
+
+                .order-item__link-img {
+                    @extend .repel-half--right;
+                }
+
+                .order-item__link-copy {
+                    @extend .display--inline-block;
+
+                    .order-item__name,
+                    .order-item__variant {
+                        @extend .display--block;
+                        @extend .text--tight;
+                    }
+
+                    .order-item__variant {
+                        @extend .weight--normal;
+                    }
+                }
+
+                &:hover,
+                &:focus {
+                    .order-item__name,
+                    .order-item__variant {
+                        text-decoration: underline;
+                    }
+                }
+            }
+
+            .order-item__term {
+                display: none;
+
+                @include media-query("palm") {
+                    display: inline;
+                    font-weight: bold;
+                    margin-right: $half-spacing-unit/2;
+                }
+            }
+
+            .order-item__desc {
+                @extend .display--inline;
+                @extend .flush--left;
+            }
+
+            .order-item__price,
+            .order-item__subtotal {
+                @extend .text--right;
+            }
+
+            .order-item__quantity,
+            .order-item__options {
+                text-align: center;
+
+                @include media-query("palm") {
+                    text-align: right;
+                }
+            }
+
+            .order-item__options {
+                @extend .line-height--epsilon;
+                @extend .epsilon;
+
+                color: $base-text-color;
+            }
+        }
+    }
+}

@@ -1,0 +1,8 @@
+.alert {
+    @extend .repel--bottom;
+
+    border: 1px solid $kissen-yellow--gamma;
+    border-radius: $brand-round;
+    padding: $quarter-spacing-unit $half-spacing-unit;
+    background-color: $kissen-yellow--epsilon;
+}
