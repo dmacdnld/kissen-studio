@@ -1,6 +1,7 @@
 #cart-link {
     @extend .float--right;
-    @extend .soft-half;
+    @extend .soft-half--ends;
+    @extend .soft-quarter--sides;
     @extend .alpha;
 
     &:hover,
@@ -8,12 +9,13 @@
     &:active {
         color: $kissen-pink--alpha;
         text-decoration: none;
+        outline: none;
     }
 
-    @include media-query(custom-up, 750px) {
+    @include media-query(custom-up, 800px) {
         position: relative;
         float: right;
-        top: 18px;
+        top: 15px;
         line-height: 0;
     }
 
@@ -23,6 +25,20 @@
         @extend .display--inline-block;
         @extend .vert--middle;
         @extend .gamma;
+
+        &:before {
+            padding: $quarter-spacing-unit;
+        }
+
+        @include media-query(custom-up, 800px) {
+            @include font-size(19px);
+        }
+    }
+
+    &:focus {
+        #cart-link__icon:before {
+            outline: 1px dotted $kissen-blue--delta;
+        }
     }
 }
 

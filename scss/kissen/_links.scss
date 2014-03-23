@@ -42,3 +42,11 @@ a,
         left:0;
     }
 }
+
+.link--action {
+    &:hover,
+    &:focus,
+    &:active {
+        text-decoration: none;
+    }
+}
