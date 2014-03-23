@@ -1,10 +1,8 @@
 .card-list {
     @extend .grid;
+    @extend .grid--tight;
     @extend .display--inline-block;
-
-    @include media-query(custom-down, 500px) {
-        text-align: center;
-    }
+    @extend .flush--bottom;
 
     .card-list__item {
         @extend .grid__item;
@@ -23,12 +21,6 @@
 .card {
     @extend .display--block;
     @extend .repel--bottom;
-
-    max-width: 22em;
-
-    @include box-shadow(
-        0 1px 1px 0 rgba(0, 0, 0, 0.18)
-    );
 }
 
 .card__image-container {
@@ -59,12 +51,12 @@
 
 .card__copy {
     @extend .soft-half;
-    @extend .text--left;
 
     .card__title {
         @extend .display--block;
         @extend .repel-quarter--bottom;
         @extend .text--capitalize;
+        @extend .text--tight;
     }
 
 }

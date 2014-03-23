@@ -65,4 +65,12 @@
         }
     }
 
+.grid--tight {
+    margin-left: -$half-spacing-unit;
+
+    .grid__item {
+        padding-left: $half-spacing-unit;
+    }
+}
+
 }//endif
