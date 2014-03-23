@@ -10,26 +10,45 @@ html {
 
 
 header {
+    @extend .box--white;
+    @extend .box--border-bottom;
+
     margin-bottom: $half-spacing-unit;
 
     @include media-query(lap-and-up) {
         margin-bottom: $base-spacing-unit;
-        padding: $half-spacing-unit;
+    }
+
+    .content {
+        @extend .cf;
+        @extend .text--center;
+        @extend .flush--bottom;
+
+        padding-right: 0;
+        padding-left: 0;
+        z-index: 1;
+
+        @include media-query(lap-and-up) {
+            padding: $half-spacing-unit;
+        }
     }
 }
 
 body {
-    max-width: 60.2em;
-    margin: 0 auto;
+    @extend .flush--ends;
 }
 
+footer {
+    @extend .box--white;
+    @extend .box--border-top;
 
-.wrapper {
-    @include media-query(palm) {
-        padding-right: $half-spacing-unit; padding-left:  $half-spacing-unit;
-    }
+    padding-top: $half-spacing-unit;
 
     @include media-query(lap-and-up) {
-        padding-right: $base-spacing-unit; padding-left:  $base-spacing-unit;
+        padding-top: $base-spacing-unit;
+    }
+
+    > small {
+        @extend .soft-quarter--ends;
     }
 }
