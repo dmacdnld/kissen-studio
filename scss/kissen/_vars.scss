@@ -1,37 +1,37 @@
 $kissen-blue--alpha:        #0079d4;
-$kissen-blue--beta:         #23a1ff;
-$kissen-blue--gamma:        #4bb2ff;
-$kissen-blue--delta:        #72c2ff;
-$kissen-blue--epsilon:      #99d3ff;
-$kissen-blue--zeta:         #c0e4ff;
+$kissen-blue--beta:         lighten($kissen-blue--alpha, 10%); // #0895ff
+$kissen-blue--gamma:        lighten($kissen-blue--alpha, 20%); // #3babff
+$kissen-blue--delta:        lighten($kissen-blue--alpha, 30%); // #6ec1ff
+$kissen-blue--epsilon:      lighten($kissen-blue--alpha, 40%); // #a1d7ff
+$kissen-blue--zeta:         lighten($kissen-blue--alpha, 50%); // #d4edff
 
 $kissen-green--alpha:       #8ca92b;
-$kissen-green--beta:        #b4d250;
-$kissen-green--gamma:       #c2da6f;
-$kissen-green--delta:       #cfe28f;
-$kissen-green--epsilon:     #dceaae;
-$kissen-green--zeta:        #eaf2cd;
+$kissen-green--beta:        lighten($kissen-green--alpha, 10%); // #abcd3a
+$kissen-green--gamma:       lighten($kissen-green--alpha, 20%); // #bcd763
+$kissen-green--delta:       lighten($kissen-green--alpha, 30%); // #cee28b
+$kissen-green--epsilon:     lighten($kissen-green--alpha, 40%); // #dfecb4
+$kissen-green--zeta:        lighten($kissen-green--alpha, 50%); // #f0f6dd
 
 $kissen-orange--alpha:      #f47037;
-$kissen-orange--beta:       #f36324;
-$kissen-orange--gamma:      #f57d4a;
-$kissen-orange--delta:      #f7986f;
-$kissen-orange--epsilon:    #f9b294;
-$kissen-orange--zeta:       #fbcdb9;
+$kissen-orange--beta:       lighten($kissen-orange--alpha, 10%); // #f79367
+$kissen-orange--gamma:      lighten($kissen-orange--alpha, 16%); // #f8a784
+$kissen-orange--delta:      lighten($kissen-orange--alpha, 22%); // #fabca1
+$kissen-orange--epsilon:    lighten($kissen-orange--alpha, 28%); // #fbd1be
+$kissen-orange--zeta:       lighten($kissen-orange--alpha, 36%); // #feece5
 
 $kissen-pink--alpha:        #fd008f;
-$kissen-pink--beta:         #ff25a0;
-$kissen-pink--gamma:        #ff4cb1;
-$kissen-pink--delta:        #ff74c2;
-$kissen-pink--epsilon:      #ff9bd3;
-$kissen-pink--zeta:         #ffc2e5;
+$kissen-pink--beta:         lighten($kissen-pink--alpha, 10%); // #fd008f
+$kissen-pink--gamma:        lighten($kissen-pink--alpha, 20%); // #ff31a5
+$kissen-pink--delta:        lighten($kissen-pink--alpha, 30%); // #ff64bc
+$kissen-pink--epsilon:      lighten($kissen-pink--alpha, 40%); // #ff97d2
+$kissen-pink--zeta:         lighten($kissen-pink--alpha, 45%); // #ffe3f3
 
 $kissen-yellow--alpha:      #fee136;
-$kissen-yellow--beta:       #fede22;
-$kissen-yellow--gamma:      #fee44a;
-$kissen-yellow--delta:      #feea71;
-$kissen-yellow--epsilon:    #fef098;
-$kissen-yellow--zeta:       #fff5bf;
+$kissen-yellow--beta:       lighten($kissen-yellow--alpha, 10%); // #fee969
+$kissen-yellow--gamma:      lighten($kissen-yellow--alpha, 16%); // #feed87
+$kissen-yellow--delta:      lighten($kissen-yellow--alpha, 22%); // #fff2a6
+$kissen-yellow--epsilon:    lighten($kissen-yellow--alpha, 28%); // #fff6c4
+$kissen-yellow--zeta:       lighten($kissen-yellow--alpha, 36%); // #fffced
 
 $kissen-gray--alpha:        #333333;
 $kissen-gray--beta:         #5b5b5b;
